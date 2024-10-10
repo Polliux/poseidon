@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://b143jrxeb4c4k"]
+
+[ext_resource type="Texture2D" uid="uid://e2hvwhnjpi57" path="res://asset/image/wm_anim.png" id="1_7atyn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy1sr"]
+atlas = ExtResource("1_7atyn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dal5x"]
+atlas = ExtResource("1_7atyn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py5ms"]
+atlas = ExtResource("1_7atyn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpj8h"]
+atlas = ExtResource("1_7atyn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wg8gm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy1sr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dal5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py5ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpj8h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="wm_anim" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_wg8gm")
+autoplay = "default"
+frame_progress = 0.749922
