@@ -14,10 +14,8 @@ var target_zoom: Vector2 = Vector2(1,1)
 
 var target_position: Vector2
 
-var top_ui_path
-
 func _ready():
-	init_top_UI() 
+	pass
 
 func _process(delta):
 	zoom_cd = clampi(zoom_cd-1,0,10)
@@ -25,7 +23,6 @@ func _process(delta):
 	# Target Position
 	if not target_position.is_equal_approx(self.position):
 		self.position = lerp(self.position,target_position,CAMERA_LERP_SPEED*delta)
-		camera_moved()
 			
 	# Target Zoom
 	if not target_zoom.is_equal_approx(self.zoom):
@@ -35,7 +32,6 @@ func _process(delta):
 		elif self.zoom > target_zoom:
 			self.zoom = lerp(self.zoom,target_zoom,ZOOM_SPEED*delta)
 			#print(self.zoom)
-		camera_moved()
 
 func on_mousewheel(mousewheel_direction: int) -> void:
 	# 1 -> UP, -1 -> DOWN
@@ -51,14 +47,3 @@ func on_mousewheel(mousewheel_direction: int) -> void:
 
 func mouse_drag_camera(vector:Vector2) -> void:
 	target_position -= (2*vector)
-
-func init_top_UI() -> void:
-	var top_ui = load("res://src/scenes/top_UI.tscn")
-	var new_top_ui = top_ui.instantiate()
-	top_ui_path = get_path_to(new_top_ui)
-	add_child(new_top_ui)
-	
-func camera_moved() -> void:
-	var ui_node = get_node(top_ui_path)
-	if ui_node != null:
-		ui_node.position_change_UI(self.position)

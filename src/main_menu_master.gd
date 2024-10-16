@@ -19,8 +19,8 @@ func _process(delta):
 
 # MENU NAVIGATION
 func _on_start_pressed():
-	var map = preload("res://src/scenes/map.tscn").instantiate()
-	get_tree().root.add_child(map)
+	var game = preload("res://src/scenes/game_control.tscn").instantiate()
+	get_tree().root.add_child(game)
 
 	queue_free()
 

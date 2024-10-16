@@ -38,7 +38,11 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 10
+theme_override_constants/separation = 20
+
+[node name="Left Margin" type="Panel" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
 
 [node name="Resource Cell 1" type="HBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource"]
 layout_mode = 2
@@ -64,12 +68,19 @@ color = Color(0.374139, 0.374139, 0.374139, 0.0980392)
 
 [node name="Resource Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+horizontal_alignment = 2
 
 [node name="Resource Cell 2" type="HBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource"]
 layout_mode = 2
@@ -95,12 +106,19 @@ color = Color(0.374139, 0.374139, 0.374139, 0.0980392)
 
 [node name="Resource Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+horizontal_alignment = 2
 
 [node name="Resource Cell 3" type="HBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource"]
 layout_mode = 2
@@ -126,12 +144,19 @@ color = Color(0.374139, 0.374139, 0.374139, 0.0980392)
 
 [node name="Resource Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+horizontal_alignment = 2
 
 [node name="Blank" type="HBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical"]
 layout_mode = 2
