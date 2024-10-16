@@ -1,0 +1,137 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu2ujvbium2cy"]
+
+[ext_resource type="Script" path="res://src/scripts/top_UI.gd" id="1_31lwq"]
+[ext_resource type="Texture2D" uid="uid://koxwu68n4acl" path="res://asset/image/icon/energy.png" id="2_sfdao"]
+[ext_resource type="Texture2D" uid="uid://bginuyhtj258" path="res://asset/image/icon/science.png" id="3_xarp7"]
+[ext_resource type="Texture2D" uid="uid://buwoap4jcglxs" path="res://asset/image/icon/production.png" id="4_tubl1"]
+
+[node name="Top UI Control" type="Node2D"]
+script = ExtResource("1_31lwq")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = 1000
+offset_right = 955.0
+offset_bottom = 50.0
+color = Color(0.11, 0.11, 0.11, 1)
+
+[node name="Background_Interior" type="ColorRect" parent="Background"]
+z_index = 1000
+layout_mode = 0
+offset_top = 10.0
+offset_right = 955.0
+offset_bottom = 40.0
+color = Color(0.11, 0.11, 0.11, 1)
+
+[node name="Top Layer" type="VBoxContainer" parent="Background/Background_Interior"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top Vertical" type="HBoxContainer" parent="Background/Background_Interior/Top Layer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Resource" type="HBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Resource Cell 1" type="HBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 5
+
+[node name="Resource Icon" type="TextureRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_sfdao")
+expand_mode = 1
+
+[node name="Resource Label" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Energy"
+
+[node name="Panel" type="ColorRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(0.374139, 0.374139, 0.374139, 0.0980392)
+
+[node name="Resource Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Resource Cell 2" type="HBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 5
+
+[node name="Resource Icon" type="TextureRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_xarp7")
+expand_mode = 1
+
+[node name="Resource Label" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Science"
+
+[node name="Panel" type="ColorRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(0.374139, 0.374139, 0.374139, 0.0980392)
+
+[node name="Resource Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Resource Cell 3" type="HBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 5
+
+[node name="Resource Icon" type="TextureRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_tubl1")
+expand_mode = 1
+
+[node name="Resource Label" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Production"
+
+[node name="Panel" type="ColorRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(0.374139, 0.374139, 0.374139, 0.0980392)
+
+[node name="Resource Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Blank" type="HBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical"]
+layout_mode = 2

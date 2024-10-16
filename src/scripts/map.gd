@@ -4,7 +4,7 @@ extends Node2D
 @onready var stilemap = $SelectionTML
 @onready var camera = $Camera2D
 
-const CONSIDER_AS_DRAG_TRESHOLD: float = 3
+const CONSIDER_AS_DRAG_TRESHOLD: float = 12
 var mouse_click_pos: Vector2 = Vector2(0,0)
 var mouse_release_pos: Vector2 = Vector2(0,0)
 var leftclick_release_cd: int = 30
@@ -12,12 +12,11 @@ var leftclick_release_cd: int = 30
 var mouse_hold: bool = false
 var camera_dragging: bool = false
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
 	leftclick_release_cd = clampi(leftclick_release_cd-1,0,10)
@@ -54,7 +53,6 @@ func _input(event):
 	# MOUSE MOTION
 	if camera_dragging:
 		if event is InputEventMouseMotion:
-			print(event.relative)
 			camera.mouse_drag_camera(event.relative)
 
 	# MOUSEWHEEL
