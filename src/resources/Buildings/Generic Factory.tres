@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Building" load_steps=3 format=3 uid="uid://c1cvel6808pu1"]
+
+[ext_resource type="Script" path="res://src/resources/Building.gd" id="1_3unq7"]
+[ext_resource type="PackedScene" uid="uid://dwsw1xts7m2hf" path="res://src/scenes/Animated/genfac_anim.tscn" id="1_ovvk5"]
+
+[resource]
+script = ExtResource("1_3unq7")
+id = "Generic Factory"
+anim_tile_sprite_path = ExtResource("1_ovvk5")
+base_yield = {}
