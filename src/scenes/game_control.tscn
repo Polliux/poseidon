@@ -12,3 +12,12 @@ offset_bottom = 40.0
 [node name="Map Subviewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
 render_target_update_mode = 4
+
+[node name="debug_add_card" type="Button" parent="."]
+offset_left = 23.0
+offset_top = 74.0
+offset_right = 185.0
+offset_bottom = 105.0
+text = "DEBUG DRAW CARD"
+
+[connection signal="pressed" from="debug_add_card" to="." method="_on_debug_add_card_pressed"]

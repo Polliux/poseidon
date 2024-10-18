@@ -81,7 +81,7 @@ func _input(event):
 	elif Input.is_action_just_pressed("Mousewheel - Down"):
 		camera.on_mousewheel(-1)
 	
-func add_test_building(mouse_position:Vector2):
+func add_test_building(mouse_position:Vector2) -> void:
 	
 	if test_building != null:
 		
@@ -89,6 +89,11 @@ func add_test_building(mouse_position:Vector2):
 		var coords: Vector2 = tilemap.local_to_map(mouse_position)
 		print(coords)
 		print(test_building.id)
+		
+		# INVALID PLACEMENT FEEDBACK
+		if tilelist.get(coords).terrain != 0:
+			# TODO: invalid sfx + flash selection tmp layer
+			return
 		
 		## add test building
 		tilelist.get(coords).set_building("res://src/resources/Buildings/Generic Factory.tres")
