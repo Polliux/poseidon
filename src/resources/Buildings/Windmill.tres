@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_u68qh")
-id = ""
+id = "Windmill"
+number = 0
 anim_tile_sprite_path = ExtResource("1_5efck")
 base_yield = {}

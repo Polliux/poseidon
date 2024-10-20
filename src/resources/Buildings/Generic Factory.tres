@@ -6,5 +6,6 @@
 [resource]
 script = ExtResource("1_3unq7")
 id = "Generic Factory"
+number = 0
 anim_tile_sprite_path = ExtResource("1_ovvk5")
 base_yield = {}

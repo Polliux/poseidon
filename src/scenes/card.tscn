@@ -1,8 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://dohoiuo4sw78b"]
+[gd_scene load_steps=5 format=3 uid="uid://dohoiuo4sw78b"]
 
 [ext_resource type="Script" path="res://src/scripts/card.gd" id="1_6aeam"]
 [ext_resource type="Texture2D" uid="uid://xq2ov0rkcnki" path="res://asset/image/card_frame.png" id="1_i0vkw"]
 
-[node name="TextureRect" type="Sprite2D"]
+[sub_resource type="Curve" id="Curve_p0qp0"]
+min_value = -1.0
+max_value = 0.0
+_data = [Vector2(0, -1), 0.0, 5.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(1, -1), -5.0, -4.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_h1xav"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 6.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 6.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Card Sprite" type="Sprite2D"]
 texture = ExtResource("1_i0vkw")
 script = ExtResource("1_6aeam")
+card_height_curve = SubResource("Curve_p0qp0")
+card_spread_curve = SubResource("Curve_h1xav")
+
+[node name="Card Shape" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -110.0
+offset_right = -75.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="mouse_entered" from="Card Shape" to="." method="_on_card_shape_mouse_entered"]
+[connection signal="mouse_exited" from="Card Shape" to="." method="_on_card_shape_mouse_exited"]

@@ -1,19 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccy1qjacl7xc2"]
+[gd_scene load_steps=2 format=3 uid="uid://ccy1qjacl7xc2"]
 
 [ext_resource type="Script" path="res://src/scripts/hand.gd" id="1_13h61"]
 
-[sub_resource type="Curve" id="Curve_u8nyc"]
-min_value = -1.0
-max_value = 0.0
-_data = [Vector2(0, -1), 0.0, 2.0, 0, 0, Vector2(0.25, -0.35), 4.0, 2.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(0.75, -0.35), -2.0, -4.0, 0, 0, Vector2(1, -1), -2.0, 0.0, 0, 0]
-point_count = 5
-
-[sub_resource type="Curve" id="Curve_x3f68"]
-min_value = -1.0
-_data = [Vector2(0, -1), 0.0, 6.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 6.0, 0.0, 0, 0]
-point_count = 3
-
 [node name="Hand" type="Node2D"]
 script = ExtResource("1_13h61")
-card_height_curve = SubResource("Curve_u8nyc")
-card_spread_curve = SubResource("Curve_x3f68")

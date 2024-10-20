@@ -96,7 +96,7 @@ func add_test_building(mouse_position:Vector2) -> void:
 			return
 		
 		## add test building
-		tilelist.get(coords).set_building("res://src/resources/Buildings/Generic Factory.tres")
+		tilelist.get(coords).set_building("res://src/resources/Buildings/Windmill.tres")
 		update_building_sprite_at(coords)
 	
 func update_building_sprite_at(coords: Vector2):
