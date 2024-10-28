@@ -22,6 +22,7 @@ var camera_dragging: bool = false
 
 
 func _ready():
+	db_build_all_tiles()
 	pass # Replace with function body.
 
 
@@ -50,6 +51,7 @@ func create_master_tilelist():
 			new_tile.terrain = randi_range(0,1)
 			
 			new_tilelist[Vector2(h,q)] = new_tile
+			new_tile.init()
 			
 	return new_tilelist
 
@@ -84,23 +86,25 @@ func _input(event):
 func add_test_building(mouse_position:Vector2) -> void:
 	
 	if test_building != null:
+		pass
 		
-		print("map coords: ")
-		var coords: Vector2 = tilemap.local_to_map(mouse_position)
-		print(coords)
-		print(test_building.id)
 		
-		# INVALID PLACEMENT FEEDBACK
-		if tilelist.get(coords).terrain != 0:
-			# TODO: invalid sfx + flash selection tmp layer
-			return
-		
-		## add test building
-		tilelist.get(coords).set_building("res://src/resources/Buildings/Windmill.tres")
-		update_building_sprite_at(coords)
+	
 	
 func update_building_sprite_at(coords: Vector2):
 	if tilelist.get(coords).building != null:
-		var new_building = tilelist.get(coords).building.anim_tile_sprite_path.instantiate()
-		new_building.position = tilemap.map_to_local(coords)
-		buildings_node.add_child(new_building)
+		var sprite
+		if ((randi()%2)==0):
+			sprite = tilelist.get(coords).building.anim_tile_sprite_path.instantiate()
+		else:
+			sprite = tilelist.get(coords).building.anim_tile_sprite_path2.instantiate()
+		sprite.position = tilemap.map_to_local(coords)
+		buildings_node.add_child(sprite)
+
+# DEBUG BUILD AT ALL GROUND TILES
+func db_build_all_tiles()-> void:
+	for i in MAP_H_MAX:
+		for e in MAP_Q_MAX:
+			if (tilelist[Vector2(i,e)].terrain == 0):
+				update_building_sprite_at(Vector2(i,e))
+				pass
