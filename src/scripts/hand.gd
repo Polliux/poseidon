@@ -26,3 +26,4 @@ func update_hand_position(window_size: Vector2) -> void:
 	var new_y = floor(window_size.y*(1.00) - CARD_SIZE_Y)
 	self.position = Vector2(new_x,new_y)
 	update_hand_card_pos()
+	

@@ -1,12 +1,6 @@
 class_name Building
 extends Resource
 
-enum resource {
-	ENERGY,
-	SCIENCE,
-	PRODUCTION
-}
-
 @export var id:String
 #@export var nid: int
 
@@ -21,5 +15,5 @@ var ref_to_sprite
 @export var base_yield: Dictionary
 
 func init():
-	for i in resource:
+	for i in Yield.resource:
 		base_yield[i] = 0
