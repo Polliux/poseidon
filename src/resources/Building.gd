@@ -16,6 +16,8 @@ enum resource {
 @export var anim_tile_sprite_path: PackedScene = preload("res://src/scenes/Animated/wm_anim.tscn")
 @export var anim_tile_sprite_path2: PackedScene = preload("res://src/scenes/Animated/genfac_anim.tscn")
 
+var ref_to_sprite
+
 @export var base_yield: Dictionary
 
 func init():

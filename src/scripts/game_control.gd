@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var map_vp = $"SubViewportContainer/Map Subviewport"
 
+var map_node
 
 func _ready():
 	
@@ -27,6 +28,9 @@ func _ready():
 	
 	window_resized()
 	
+	# GET & ASSIGN MAP NODE
+	map_node = map_vp.get_node("Game Map Node")
+	
 
 func _process(delta):
 	pass
@@ -44,6 +48,12 @@ func window_resized() -> void:
 		current_hand_node.update_hand_position(new_size)
 	
 
-func _on_debug_add_card_pressed():
+func _on_debug_add_card_pressed() -> void:
 	var hand = get_node("Hand")
 	hand.draw_card()
+
+func _on_debug_regenerate_pressed() -> void:
+	#map_node = map_vp.get_node("Game Map Node")
+	map_node.db_build_all_tiles()
+	
+	

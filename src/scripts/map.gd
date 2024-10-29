@@ -84,22 +84,28 @@ func _input(event):
 		camera.on_mousewheel(-1)
 	
 func add_test_building(mouse_position:Vector2) -> void:
-	
 	if test_building != null:
 		pass
 		
-		
-	
-	
 func update_building_sprite_at(coords: Vector2):
-	if tilelist.get(coords).building != null:
+	var building_ref = tilelist.get(coords).building
+	if building_ref != null:
+		
+		if building_ref.ref_to_sprite != null:
+			building_ref.ref_to_sprite.queue_free()
+			
 		var sprite
-		if ((randi()%2)==0):
+		var randi = (randi()%3)
+		if (randi == 0):
 			sprite = tilelist.get(coords).building.anim_tile_sprite_path.instantiate()
-		else:
+		elif (randi == 1):
 			sprite = tilelist.get(coords).building.anim_tile_sprite_path2.instantiate()
+		else:
+			return
+			
 		sprite.position = tilemap.map_to_local(coords)
 		buildings_node.add_child(sprite)
+		building_ref.ref_to_sprite = sprite
 
 # DEBUG BUILD AT ALL GROUND TILES
 func db_build_all_tiles()-> void:
