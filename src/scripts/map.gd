@@ -47,7 +47,7 @@ func create_master_tilelist():
 	for h in range(MAP_H_MAX):
 		for q in range(MAP_Q_MAX):
 			var new_tile = Tile.new()
-			var random_terrain: Vector2 = Vector2(randi_range(0,2),randi_range(0,1))
+			#var random_terrain: Vector2 = Vector2(randi_range(0,2),randi_range(0,1))
 			new_tile.terrain = randi_range(0,1)
 			
 			new_tilelist[Vector2(h,q)] = new_tile
@@ -84,33 +84,30 @@ func _input(event):
 		camera.on_mousewheel(-1)
 	
 func add_test_building(mouse_position:Vector2) -> void:
-	if test_building != null:
-		pass
+	assign_building_to_tile(tilemap.local_to_map(mouse_position));
+		
+func assign_building_to_tile(coords:Vector2) -> void:
+	var wmres = preload("res://src/resources/Buildings/Windmill.tres")
+	tilelist[coords].set_building(wmres)
+	update_building_sprite_at(coords)
 		
 func update_building_sprite_at(coords: Vector2):
-	var building_ref = tilelist.get(coords).building
-	if building_ref != null:
-		
-		if building_ref.ref_to_sprite != null:
-			building_ref.ref_to_sprite.queue_free()
+	var tile = tilelist.get(coords)
+	if tile.building != null:
+		if tile.path_to_sprite != null:
+			tile.path_to_sprite.queue_free()
 			
-		var sprite
-		var randi = (randi()%3)
-		if (randi == 0):
-			sprite = tilelist.get(coords).building.anim_tile_sprite_path.instantiate()
-		elif (randi == 1):
-			sprite = tilelist.get(coords).building.anim_tile_sprite_path2.instantiate()
-		else:
-			return
+		var sprite = tile.building.tile_sprite_ps.instantiate()
 			
 		sprite.position = tilemap.map_to_local(coords)
 		buildings_node.add_child(sprite)
-		building_ref.ref_to_sprite = sprite
+		tile.path_to_sprite = sprite
 
 # DEBUG BUILD AT ALL GROUND TILES
 func db_build_all_tiles()-> void:
 	for i in MAP_H_MAX:
 		for e in MAP_Q_MAX:
+			# IF GROUND, RANDOM BUILD
 			if (tilelist[Vector2(i,e)].terrain == 0):
-				update_building_sprite_at(Vector2(i,e))
+				
 				pass

@@ -13,7 +13,7 @@ func _process(delta):
 	pass
 
 func random_terrain_gen():
-	
+	#DEBUG
 	var tl = owner.tilelist
 	for i in tl:
 		var random_terrain: Vector2 = Vector2(randi_range(0,2),tl[i].terrain)

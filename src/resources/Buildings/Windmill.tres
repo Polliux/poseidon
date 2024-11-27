@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="Building" load_steps=3 format=3 uid="uid://duwsnjwb1g1nv"]
+[gd_resource type="Resource" script_class="Building" load_steps=3 format=3 uid="uid://clf3lcsqor8w7"]
 
 [ext_resource type="PackedScene" uid="uid://b143jrxeb4c4k" path="res://src/scenes/Animated/wm_anim.tscn" id="1_5efck"]
 [ext_resource type="Script" path="res://src/resources/Building.gd" id="1_u68qh"]
 
 [resource]
 script = ExtResource("1_u68qh")
-id = "Windmill"
+id = ""
 number = 0
-anim_tile_sprite_path = ExtResource("1_5efck")
-base_yield = {}
+tile_sprite_ps = ExtResource("1_5efck")
+base_yield = null

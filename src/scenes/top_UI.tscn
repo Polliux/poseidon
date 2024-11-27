@@ -11,15 +11,15 @@ script = ExtResource("1_31lwq")
 [node name="Background" type="ColorRect" parent="."]
 z_index = 1000
 offset_right = 955.0
-offset_bottom = 50.0
+offset_bottom = 70.0
 color = Color(0.11, 0.11, 0.11, 1)
 
 [node name="Background_Interior" type="ColorRect" parent="Background"]
 z_index = 1000
 layout_mode = 0
-offset_top = 10.0
+offset_top = 5.0
 offset_right = 955.0
-offset_bottom = 40.0
+offset_bottom = 65.0
 color = Color(0.11, 0.11, 0.11, 1)
 
 [node name="Top Layer" type="VBoxContainer" parent="Background/Background_Interior"]
@@ -38,7 +38,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 
 [node name="Left Margin" type="Panel" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource"]
 custom_minimum_size = Vector2(20, 0)
@@ -46,27 +46,57 @@ layout_mode = 2
 
 [node name="Resource Cell 1" type="HBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource"]
 layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 6
+size_flags_horizontal = 6
+size_flags_vertical = 3
 theme_override_constants/separation = 5
 
 [node name="Resource Icon" type="TextureRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("2_sfdao")
 expand_mode = 1
 
 [node name="Resource Label" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Energy"
 
-[node name="Panel" type="ColorRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Res Panel" type="ColorRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_vertical = 3
 color = Color(0.374139, 0.374139, 0.374139, 0.0980392)
 
-[node name="Resource Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1/Panel"]
+[node name="Resource Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1/VBoxContainer/Res Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="Mod Panel" type="ColorRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.374139, 0.374139, 0.374139, 0.0980392)
+
+[node name="Mod Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 1/VBoxContainer/Mod Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -84,27 +114,57 @@ horizontal_alignment = 2
 
 [node name="Resource Cell 2" type="HBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource"]
 layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 6
+size_flags_horizontal = 6
+size_flags_vertical = 3
 theme_override_constants/separation = 5
 
 [node name="Resource Icon" type="TextureRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("3_xarp7")
 expand_mode = 1
 
 [node name="Resource Label" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Science"
 
-[node name="Panel" type="ColorRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Res Panel" type="ColorRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_vertical = 3
 color = Color(0.374139, 0.374139, 0.374139, 0.0980392)
 
-[node name="Resource Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2/Panel"]
+[node name="Resource Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2/VBoxContainer/Res Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="Mod Panel" type="ColorRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.374139, 0.374139, 0.374139, 0.0980392)
+
+[node name="Mod Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 2/VBoxContainer/Mod Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -122,27 +182,57 @@ horizontal_alignment = 2
 
 [node name="Resource Cell 3" type="HBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource"]
 layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 6
+size_flags_horizontal = 6
+size_flags_vertical = 3
 theme_override_constants/separation = 5
 
 [node name="Resource Icon" type="TextureRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("4_tubl1")
 expand_mode = 1
 
 [node name="Resource Label" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Production"
 
-[node name="Panel" type="ColorRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Res Panel" type="ColorRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_vertical = 3
 color = Color(0.374139, 0.374139, 0.374139, 0.0980392)
 
-[node name="Resource Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3/Panel"]
+[node name="Resource Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3/VBoxContainer/Res Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+
+[node name="Mod Panel" type="ColorRect" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.374139, 0.374139, 0.374139, 0.0980392)
+
+[node name="Mod Value" type="Label" parent="Background/Background_Interior/Top Layer/Top Vertical/Resource/Resource Cell 3/VBoxContainer/Mod Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

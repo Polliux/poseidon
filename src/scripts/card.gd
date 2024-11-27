@@ -19,6 +19,7 @@ const CARD_TILT_RADIAN_MULT: float = 0.25
 const LERP_SPEED: float = 0.05
 
 func _ready():
+	card_shape_node.set_tooltip_text(name)
 	#card_shape_node.position = self.position
 	#card_shape_node.size = get_rect().size
 	pass
@@ -65,3 +66,4 @@ func _on_card_shape_mouse_entered():
 func _on_card_shape_mouse_exited():
 	mouse_hover = false
 	update_on_hand_pos()
+	

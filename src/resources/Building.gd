@@ -6,14 +6,6 @@ extends Resource
 
 @export var number:int = 0
 
-@export var tile_sprite_path: PackedScene
-@export var anim_tile_sprite_path: PackedScene = preload("res://src/scenes/Animated/wm_anim.tscn")
-@export var anim_tile_sprite_path2: PackedScene = preload("res://src/scenes/Animated/genfac_anim.tscn")
+@export var tile_sprite_ps: PackedScene
 
-var ref_to_sprite
-
-@export var base_yield: Dictionary
-
-func init():
-	for i in Yield.resource:
-		base_yield[i] = 0
+@export var base_yield: Dictionary = Yield.zero_yields()

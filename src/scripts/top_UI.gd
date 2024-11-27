@@ -20,10 +20,13 @@ func set_start_resource() -> void:
 	modify_resource_value("Science",45, SET)
 	modify_resource_value("Production",32, SET)
 	
+	modify_delta_value("Energy",3, SET)
+	modify_delta_value("Science",1, SET)
+	modify_delta_value("Production",1, SET)
 
 func modify_resource_value(resource: String, value: int, mode: int) -> void:
 	# SET, INCR OR DECRE SPECIFIC RESOURCE BY VALUE
-			var rv = get_resource_node(resource).get_node("Panel/Resource Value")
+			var rv = get_resource_node(resource).get_node("VBoxContainer/Res Panel/Resource Value")
 			var new_value: int = 0
 			match mode:
 				0:
@@ -33,10 +36,34 @@ func modify_resource_value(resource: String, value: int, mode: int) -> void:
 				-1:
 					new_value = int(rv.text) - value
 			rv.set_text(str(new_value))
+			
+func modify_delta_value(resource: String, value: int, mode: int) -> void:
+	# SET, INCR OR DECRE SPECIFIC RESOURCE BY VALUE
+			var rv = get_resource_node(resource).get_node("VBoxContainer/Mod Panel/Mod Value")
+			var new_value: int = 0
+			var new_str: String = ""
+			match mode:
+				0:
+					new_value = value
+				1:
+					new_value = int(rv.text) + value
+				-1:
+					new_value = int(rv.text) - value
+			if new_value >= 0:
+				new_str += "+"
+				rv.set("theme_override_colors/font_color",Color.LIME_GREEN)
+			else:
+				new_str += "-"
+				rv.set("theme_override_colors/font_color",Color.RED)
+			rv.set_text(new_str + str(new_value))
 
 func get_resource_value(resource: String) -> int:
 	# RETURN SPECIFIED RESOURCE VALUE
-	return int(get_resource_node(resource).get_node_or_null("Panel/Resource Value").text)
+	return int(get_resource_node(resource).get_node_or_null("VBoxContainer/Res Panel/Resource Value").text)
+
+func get_delta_value(resource: String) -> int:
+	# RETURN SPECIFIED RESOURCE VALUE
+	return int(get_resource_node(resource).get_node_or_null("VBoxContainer/Mod Panel/Mod Value").text)
 	
 func get_resource_node(resource: String) -> Node:
 	# RETURN RESOURCE CELL NODE FOR SPECIFIED RESOURCE NAME
