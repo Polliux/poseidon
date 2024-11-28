@@ -8,4 +8,7 @@ script = ExtResource("1_4weao")
 id = ""
 number = 0
 tile_sprite_ps = ExtResource("2_tspr6")
-base_yield = {}
+base_yield = {
+"ENERGY": -3,
+"PRODUCTION": 2
+}

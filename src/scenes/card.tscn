@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dohoiuo4sw78b"]
+[gd_scene load_steps=10 format=3 uid="uid://dohoiuo4sw78b"]
 
 [ext_resource type="Script" path="res://src/scripts/card.gd" id="1_6aeam"]
 [ext_resource type="Texture2D" uid="uid://xq2ov0rkcnki" path="res://asset/image/card_frame.png" id="1_i0vkw"]
+[ext_resource type="Script" path="res://src/scripts/card_state_machine.gd" id="3_fnr1i"]
+[ext_resource type="Script" path="res://src/scripts/States/card_neutral.gd" id="4_h8vp3"]
+[ext_resource type="Script" path="res://src/scripts/States/card_clicked.gd" id="5_dkffk"]
+[ext_resource type="Script" path="res://src/scripts/States/card_placed.gd" id="6_6m0kx"]
+[ext_resource type="Script" path="res://src/scripts/States/card_dragging.gd" id="7_aybht"]
 
 [sub_resource type="Curve" id="Curve_p0qp0"]
 min_value = -1.0
@@ -32,5 +37,22 @@ offset_bottom = -110.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_fnr1i")
+initial_state = NodePath("Card_Neutral")
+
+[node name="Card_Neutral" type="Node" parent="State Machine"]
+script = ExtResource("4_h8vp3")
+
+[node name="Card_Clicked" type="Node" parent="State Machine"]
+script = ExtResource("5_dkffk")
+
+[node name="Card_Placed" type="Node" parent="State Machine"]
+script = ExtResource("6_6m0kx")
+
+[node name="Card_Dragging" type="Node" parent="State Machine"]
+script = ExtResource("7_aybht")
+
+[connection signal="gui_input" from="Card Shape" to="." method="_on_card_shape_gui_input"]
 [connection signal="mouse_entered" from="Card Shape" to="." method="_on_card_shape_mouse_entered"]
 [connection signal="mouse_exited" from="Card Shape" to="." method="_on_card_shape_mouse_exited"]

@@ -5,7 +5,7 @@ extends Node2D
 @onready var camera = $Camera2D
 @onready var buildings_node = $Buildings
 
-@export var test_building: Building
+@onready var top_ui_node = get_node("/root/Game Control/Top UI Control")
 
 const MAP_H_MAX: int = 40
 const MAP_Q_MAX:int = 30
@@ -21,8 +21,10 @@ var mouse_hold: bool = false
 var camera_dragging: bool = false
 
 
+
 func _ready():
-	db_build_all_tiles()
+	
+	#db_build_all_tiles()
 	pass # Replace with function body.
 
 
@@ -84,12 +86,18 @@ func _input(event):
 		camera.on_mousewheel(-1)
 	
 func add_test_building(mouse_position:Vector2) -> void:
-	assign_building_to_tile(tilemap.local_to_map(mouse_position));
+	if tilelist[Vector2(tilemap.local_to_map(mouse_position))].terrain == 0:
+		assign_building_to_tile(tilemap.local_to_map(mouse_position))
 		
 func assign_building_to_tile(coords:Vector2) -> void:
 	var wmres = preload("res://src/resources/Buildings/Windmill.tres")
-	tilelist[coords].set_building(wmres)
+	var factres = preload("res://src/resources/Buildings/Generic_Factory.tres")
+	var rand_building = wmres
+	if randi_range(0,1) == 1:
+		rand_building = factres
+	tilelist[coords].set_building(rand_building)
 	update_building_sprite_at(coords)
+	update_total_yields()
 		
 func update_building_sprite_at(coords: Vector2):
 	var tile = tilelist.get(coords)
@@ -98,6 +106,8 @@ func update_building_sprite_at(coords: Vector2):
 			tile.path_to_sprite.queue_free()
 			
 		var sprite = tile.building.tile_sprite_ps.instantiate()
+		sprite.speed_scale = randf_range(0.6,1.4)
+		sprite.scale = Vector2(2,2)
 			
 		sprite.position = tilemap.map_to_local(coords)
 		buildings_node.add_child(sprite)
@@ -109,5 +119,20 @@ func db_build_all_tiles()-> void:
 		for e in MAP_Q_MAX:
 			# IF GROUND, RANDOM BUILD
 			if (tilelist[Vector2(i,e)].terrain == 0):
-				
 				pass
+
+# TODO: REFACTOR FOR EFFICIENCY
+func get_tile_yield(coords:Vector2):
+	return tilelist[coords].yields
+
+func update_total_yields():
+	var total_yields:Dictionary = {}
+	for n in Yield.resource:
+		total_yields[n] = 0;
+	for i in tilelist:
+		for r in Yield.resource:
+			total_yields[r] += tilelist[i].yields[r]
+			
+	for n in Yield.resource:
+		top_ui_node.modify_delta_value(str(n),total_yields[n],0)
+		

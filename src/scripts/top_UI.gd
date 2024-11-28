@@ -16,13 +16,13 @@ func size_change_UI(new_size:Vector2) -> void:
 
 func set_start_resource() -> void:
 	# SET STARTING RESOURCE
-	modify_resource_value("Energy",20, SET)
-	modify_resource_value("Science",45, SET)
-	modify_resource_value("Production",32, SET)
+	modify_resource_value("ENERGY",20, SET)
+	modify_resource_value("SCIENCE",45, SET)
+	modify_resource_value("PRODUCTION",32, SET)
 	
-	modify_delta_value("Energy",3, SET)
-	modify_delta_value("Science",1, SET)
-	modify_delta_value("Production",1, SET)
+	modify_delta_value("ENERGY",3, SET)
+	modify_delta_value("SCIENCE",1, SET)
+	modify_delta_value("PRODUCTION",1, SET)
 
 func modify_resource_value(resource: String, value: int, mode: int) -> void:
 	# SET, INCR OR DECRE SPECIFIC RESOURCE BY VALUE
@@ -53,7 +53,7 @@ func modify_delta_value(resource: String, value: int, mode: int) -> void:
 				new_str += "+"
 				rv.set("theme_override_colors/font_color",Color.LIME_GREEN)
 			else:
-				new_str += "-"
+				
 				rv.set("theme_override_colors/font_color",Color.RED)
 			rv.set_text(new_str + str(new_value))
 

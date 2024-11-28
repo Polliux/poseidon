@@ -1,5 +1,7 @@
 extends Sprite2D
 
+@onready var state_machine = $"State Machine"
+
 var mouse_hover: bool = false
 const on_hover_extend: Vector2 = Vector2(0,-75)
 
@@ -27,6 +29,7 @@ func _ready():
 func _process(delta):
 	self.position = lerp(self.position,target_pos,LERP_SPEED)
 	self.rotation = lerp(self.rotation,target_tilt,LERP_SPEED)
+	
 
 func update_on_hand_pos() -> void:
 	
@@ -67,3 +70,7 @@ func _on_card_shape_mouse_exited():
 	mouse_hover = false
 	update_on_hand_pos()
 	
+
+func _on_card_shape_gui_input(event):
+	if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+		$"State Machine/Card_Neutral".To_Clicked()

@@ -22,4 +22,7 @@ func update_yield() ->void:
 	
 	if building != null:
 		for i in Yield.resource:
-			yields[i] = building.base_yield[i]
+			if building.base_yield.has(i):
+				yields[i] = building.base_yield[i]
+			else:
+				yields[i] = 0
