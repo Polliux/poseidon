@@ -4,6 +4,8 @@ class_name Card_Neutral
 var card
 
 func Enter():
+	card.reset_alpha()
+	card.scale = Vector2(1,1)
 	print("Neutral")
 	pass
 

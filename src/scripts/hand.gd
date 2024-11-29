@@ -14,7 +14,6 @@ func _process(delta):
 
 func draw_card() -> void:
 	add_child(card_frame.instantiate())
-	update_hand_card_pos()
 	
 func update_hand_card_pos() -> void:
 	for index in get_child_count():
@@ -27,3 +26,5 @@ func update_hand_position(window_size: Vector2) -> void:
 	self.position = Vector2(new_x,new_y)
 	update_hand_card_pos()
 	
+func _on_child_order_changed():
+	update_hand_card_pos()

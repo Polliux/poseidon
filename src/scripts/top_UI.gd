@@ -20,9 +20,9 @@ func set_start_resource() -> void:
 	modify_resource_value("SCIENCE",45, SET)
 	modify_resource_value("PRODUCTION",32, SET)
 	
-	modify_delta_value("ENERGY",3, SET)
-	modify_delta_value("SCIENCE",1, SET)
-	modify_delta_value("PRODUCTION",1, SET)
+	modify_delta_value("ENERGY",0, SET)
+	modify_delta_value("SCIENCE",0, SET)
+	modify_delta_value("PRODUCTION",0, SET)
 
 func modify_resource_value(resource: String, value: int, mode: int) -> void:
 	# SET, INCR OR DECRE SPECIFIC RESOURCE BY VALUE

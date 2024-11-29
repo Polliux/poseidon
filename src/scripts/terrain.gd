@@ -2,10 +2,13 @@ extends Node2D
 
 @onready var terrain_tilemap = $TileMapLayer
 
-const MAP_H_MAX: int = 50
-const MAP_Q_MAX: int = 30
+var map_H_MAX: int
+var map_Q_MAX: int
 
 func _ready():
+	
+	map_H_MAX = get_parent().MAP_H_MAX
+	map_Q_MAX = get_parent().MAP_Q_MAX
 	terrain_tilemap.clear()
 	random_terrain_gen()
 	

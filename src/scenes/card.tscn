@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dohoiuo4sw78b"]
+[gd_scene load_steps=11 format=3 uid="uid://dohoiuo4sw78b"]
 
-[ext_resource type="Script" path="res://src/scripts/card.gd" id="1_6aeam"]
+[ext_resource type="Script" path="res://src/scripts/card_scr.gd" id="1_6aeam"]
 [ext_resource type="Texture2D" uid="uid://xq2ov0rkcnki" path="res://asset/image/card_frame.png" id="1_i0vkw"]
 [ext_resource type="Script" path="res://src/scripts/card_state_machine.gd" id="3_fnr1i"]
+[ext_resource type="Resource" uid="uid://b06b8l53ffojj" path="res://src/resources/Cards/Windmill.tres" id="3_um7x1"]
 [ext_resource type="Script" path="res://src/scripts/States/card_neutral.gd" id="4_h8vp3"]
 [ext_resource type="Script" path="res://src/scripts/States/card_clicked.gd" id="5_dkffk"]
 [ext_resource type="Script" path="res://src/scripts/States/card_placed.gd" id="6_6m0kx"]
@@ -22,6 +23,7 @@ point_count = 3
 [node name="Card Sprite" type="Sprite2D"]
 texture = ExtResource("1_i0vkw")
 script = ExtResource("1_6aeam")
+card_res = ExtResource("3_um7x1")
 card_height_curve = SubResource("Curve_p0qp0")
 card_spread_curve = SubResource("Curve_h1xav")
 

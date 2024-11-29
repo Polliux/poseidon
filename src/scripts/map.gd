@@ -21,9 +21,9 @@ var mouse_hold: bool = false
 var camera_dragging: bool = false
 
 
-
 func _ready():
 	
+	EventController.assign_as_map_control(self)
 	#db_build_all_tiles()
 	pass # Replace with function body.
 
@@ -52,7 +52,7 @@ func create_master_tilelist():
 			#var random_terrain: Vector2 = Vector2(randi_range(0,2),randi_range(0,1))
 			new_tile.terrain = randi_range(0,1)
 			
-			new_tilelist[Vector2(h,q)] = new_tile
+			new_tilelist[Vector2i(h,q)] = new_tile
 			new_tile.init()
 			
 	return new_tilelist
@@ -66,7 +66,8 @@ func _input(event):
 		mouse_hold = false
 		if (mouse_click_pos.distance_to(mouse_release_pos) < CONSIDER_AS_DRAG_TRESHOLD ):
 			# INTEPRET AS CLICK
-			add_test_building(get_global_mouse_position())
+			#add_test_building(get_global_mouse_position())
+			pass
 
 		camera_dragging = false
 		
@@ -86,20 +87,28 @@ func _input(event):
 		camera.on_mousewheel(-1)
 	
 func add_test_building(mouse_position:Vector2) -> void:
-	if tilelist[Vector2(tilemap.local_to_map(mouse_position))].terrain == 0:
-		assign_building_to_tile(tilemap.local_to_map(mouse_position))
+	if tilelist.has(Vector2i(tilemap.local_to_map(mouse_position))):
+		if tilelist[Vector2i(tilemap.local_to_map(mouse_position))].terrain == 0:
+			#assign_building_to_tile(tilemap.local_to_map(mouse_position))
+			pass
+			
+func add_building(bd:Building):
+	var mouse_position:Vector2 = get_local_mouse_position()
+	if tilelist.has(Vector2i(tilemap.local_to_map(mouse_position))):
+		if tilelist[Vector2i(tilemap.local_to_map(mouse_position))].terrain == 0:
+			assign_building_to_tile(tilemap.local_to_map(mouse_position),bd)
 		
-func assign_building_to_tile(coords:Vector2) -> void:
-	var wmres = preload("res://src/resources/Buildings/Windmill.tres")
-	var factres = preload("res://src/resources/Buildings/Generic_Factory.tres")
-	var rand_building = wmres
-	if randi_range(0,1) == 1:
-		rand_building = factres
-	tilelist[coords].set_building(rand_building)
+func assign_building_to_tile(coords:Vector2i, bd:Building) -> void:
+	tilelist[coords].set_building(bd,coords)
+	var dict = get_adjacent_tiles(coords)
+	# UPDATE ADJACENCIES FOR ADJACENT BUILDING
+	for i in dict:
+		dict.get(i).update_yield(i)
+	
 	update_building_sprite_at(coords)
 	update_total_yields()
 		
-func update_building_sprite_at(coords: Vector2):
+func update_building_sprite_at(coords: Vector2i):
 	var tile = tilelist.get(coords)
 	if tile.building != null:
 		if tile.path_to_sprite != null:
@@ -118,11 +127,11 @@ func db_build_all_tiles()-> void:
 	for i in MAP_H_MAX:
 		for e in MAP_Q_MAX:
 			# IF GROUND, RANDOM BUILD
-			if (tilelist[Vector2(i,e)].terrain == 0):
+			if (tilelist[Vector2i(i,e)].terrain == 0):
 				pass
 
 # TODO: REFACTOR FOR EFFICIENCY
-func get_tile_yield(coords:Vector2):
+func get_tile_yield(coords:Vector2i):
 	return tilelist[coords].yields
 
 func update_total_yields():
@@ -136,3 +145,11 @@ func update_total_yields():
 	for n in Yield.resource:
 		top_ui_node.modify_delta_value(str(n),total_yields[n],0)
 		
+func get_adjacent_tiles(coords:Vector2i) -> Dictionary:
+	var dict:Dictionary = {}
+	var arr = tilemap.get_surrounding_cells(Vector2i(coords))
+	for i in arr:
+		dict[i] = tilelist[i]
+	return dict
+	
+	

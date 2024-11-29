@@ -1,13 +1,12 @@
-[gd_resource type="Resource" script_class="Building" load_steps=3 format=3 uid="uid://clf3lcsqor8w7"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://clf3lcsqor8w7"]
 
 [ext_resource type="PackedScene" uid="uid://b143jrxeb4c4k" path="res://src/scenes/Animated/wm_anim.tscn" id="1_5efck"]
-[ext_resource type="Script" path="res://src/resources/Building.gd" id="1_u68qh"]
+[ext_resource type="Script" path="res://src/resources/Builidng_Logic/Bd_Windmill_Logic.gd" id="1_tj0th"]
 
 [resource]
-script = ExtResource("1_u68qh")
+script = ExtResource("1_tj0th")
 id = ""
+building_name = "Windmill"
 number = 0
 tile_sprite_ps = ExtResource("1_5efck")
-base_yield = {
-"ENERGY": 1
-}
+base_yield = null

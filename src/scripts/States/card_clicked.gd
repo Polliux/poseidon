@@ -12,5 +12,6 @@ func Update(delta:float):
 
 func UpdateInputEvent(event):
 	if event is InputEventMouseMotion:
-		if event.relative > Vector2(4,4):
-			Transitioned.emit(self,"Card_Dragging")
+		Transitioned.emit(self,"Card_Dragging")
+	else:
+		Transitioned.emit(self,"Card_Neutral")

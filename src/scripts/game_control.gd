@@ -2,9 +2,14 @@ extends Node2D
 
 @onready var map_vp = $"SubViewportContainer/Map Subviewport"
 
+signal card_action
+
 var map_node
 
 func _ready():
+	
+	# CONNECT TO MASTER NODE
+	EventController.assign_as_game_control(self)
 	
 	# WINDOW SIZE CHANGE SIGNAL
 	get_tree().get_root().size_changed.connect(window_resized)
@@ -31,6 +36,9 @@ func _ready():
 	# GET & ASSIGN MAP NODE
 	map_node = map_vp.get_node("Game Map Node")
 	
+func get_map_node():
+	if map_node:
+		return map_node
 
 func _process(delta):
 	pass
