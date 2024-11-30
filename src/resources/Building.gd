@@ -16,6 +16,5 @@ func get_base_yield():
 func set_base_yield(new_yield: Dictionary):
 	base_yield = new_yield
 
-
 func get_updated_yield(tile_coords:Vector2i) -> Dictionary:
 	return base_yield

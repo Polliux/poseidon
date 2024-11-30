@@ -92,13 +92,13 @@ func add_test_building(mouse_position:Vector2) -> void:
 			#assign_building_to_tile(tilemap.local_to_map(mouse_position))
 			pass
 			
-func add_building(bd:Building):
+func add_building(bd: Building):
 	var mouse_position:Vector2 = get_local_mouse_position()
 	if tilelist.has(Vector2i(tilemap.local_to_map(mouse_position))):
 		if tilelist[Vector2i(tilemap.local_to_map(mouse_position))].terrain == 0:
 			assign_building_to_tile(tilemap.local_to_map(mouse_position),bd)
 		
-func assign_building_to_tile(coords:Vector2i, bd:Building) -> void:
+func assign_building_to_tile(coords:Vector2i, bd: Building) -> void:
 	tilelist[coords].set_building(bd,coords)
 	var dict = get_adjacent_tiles(coords)
 	# UPDATE ADJACENCIES FOR ADJACENT BUILDING
@@ -130,9 +130,17 @@ func db_build_all_tiles()-> void:
 			if (tilelist[Vector2i(i,e)].terrain == 0):
 				pass
 
+# GET TILE OBJECT OF CURRENT MOUSE CURSOR POSITION
+func get_pointing_tile():
+	var mouse = get_global_mouse_position()
+	if tilelist[tilemap.local_to_map(mouse)]:
+		return tilelist[tilemap.local_to_map(mouse)]
+	else:
+		return null
+
 # TODO: REFACTOR FOR EFFICIENCY
-func get_tile_yield(coords:Vector2i):
-	return tilelist[coords].yields
+func get_tile(coords:Vector2i):
+	return tilelist[coords]
 
 func update_total_yields():
 	var total_yields:Dictionary = {}

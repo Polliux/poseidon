@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_4weao")
 id = ""
+building_name = ""
 number = 0
 tile_sprite_ps = ExtResource("2_tspr6")
 base_yield = {
