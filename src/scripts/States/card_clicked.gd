@@ -4,7 +4,6 @@ class_name Card_Clicked
 var card
 
 func Enter():
-	print("Clicked")
 	pass
 
 func Update(delta:float):

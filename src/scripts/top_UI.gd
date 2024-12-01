@@ -23,6 +23,7 @@ func set_start_resource() -> void:
 	modify_delta_value("ENERGY",0, SET)
 	modify_delta_value("SCIENCE",0, SET)
 	modify_delta_value("PRODUCTION",0, SET)
+	modify_delta_value("POLLUTION",20, SET)
 
 func modify_resource_value(resource: String, value: int, mode: int) -> void:
 	# SET, INCR OR DECRE SPECIFIC RESOURCE BY VALUE
@@ -49,12 +50,17 @@ func modify_delta_value(resource: String, value: int, mode: int) -> void:
 					new_value = int(rv.text) + value
 				-1:
 					new_value = int(rv.text) - value
-			if new_value >= 0:
+					
+			if resource == "POLLUTION":
 				new_str += "+"
-				rv.set("theme_override_colors/font_color",Color.LIME_GREEN)
+				rv.set("theme_override_colors/font_color",Color.SEA_GREEN)
 			else:
-				
-				rv.set("theme_override_colors/font_color",Color.RED)
+				if new_value >= 0:
+					new_str += "+"
+					rv.set("theme_override_colors/font_color",Color.LIME_GREEN)
+				else:
+					
+					rv.set("theme_override_colors/font_color",Color.RED)
 			rv.set_text(new_str + str(new_value))
 
 func get_resource_value(resource: String) -> int:

@@ -9,7 +9,6 @@ const LERP_SPEED: float = 0.12
 func Enter():
 	target_pos = card.position
 	card.half_alpha()
-	print("Dragging")
 	
 func Update(delta):
 	card.position = lerp(card.position,target_pos,LERP_SPEED)

@@ -4,9 +4,7 @@ class_name Card_Placed
 var card
 
 func Enter():
-	print("Placed")
 	if card.card_res.execute_check():
-		print("Execute")
 		card.card_res.card_execute()
 		card.on_card_played()
 	else:

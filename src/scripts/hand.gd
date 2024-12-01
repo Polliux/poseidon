@@ -12,8 +12,6 @@ func _ready():
 func _process(delta):
 	pass
 
-func draw_card() -> void:
-	add_child(card_frame.instantiate())
 	
 func update_hand_card_pos() -> void:
 	for index in get_child_count():

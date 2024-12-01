@@ -1,12 +1,17 @@
 extends Node2D
 
-@onready var map_vp = $"SubViewportContainer/Map Subviewport"
+@export var map_vp: SubViewport
+@export var drawpile_node: Node
+@export var discardpile_node: Node
 
 signal card_action
 
 var map_node
 
+
 func _ready():
+	
+	Cards_Collection.load()
 	
 	# CONNECT TO MASTER NODE
 	EventController.assign_as_game_control(self)
@@ -25,11 +30,6 @@ func _ready():
 	var new_main_map = main_map.instantiate()
 	map_vp.add_child(new_main_map)
 	
-	# INIT TEST HAND/CARDS
-	var hand_node = preload("res://src/scenes/hand.tscn").instantiate()
-	add_child(hand_node)
-	for i in range(1):
-		hand_node.draw_card()
 	
 	window_resized()
 	
@@ -50,18 +50,30 @@ func window_resized() -> void:
 	var current_hand_node = get_node_or_null("Hand")
 	
 	map_vp.size = new_size
-	if current_top_ui != null:
+	if current_top_ui:
 		current_top_ui.size_change_UI(new_size)
-	if current_hand_node != null:
+	if current_hand_node:
 		current_hand_node.update_hand_position(new_size)
-	
+	if drawpile_node:
+		drawpile_node.size_change_UI(new_size)
+	if discardpile_node:
+		discardpile_node.size_change_UI(new_size)
 
-func _on_debug_add_card_pressed() -> void:
-	var hand = get_node("Hand")
-	hand.draw_card()
+func add_to_discard_pile(card:Card) -> void:
+	discardpile_node.insert(card)
+	
 
 func _on_debug_regenerate_pressed() -> void:
 	#map_node = map_vp.get_node("Game Map Node")
 	map_node.db_build_all_tiles()
 	
+func _on_debug_draw_cards_pressed() -> void:
+	if drawpile_node:
+		drawpile_node.into_player_hand()
 	
+func _on_debug_cards_to_drawpile_pressed() -> void:
+	
+	var card:Card
+	for i in range(4):
+		card = Cards_Collection.get_random_card_res()
+		drawpile_node.insert(card)

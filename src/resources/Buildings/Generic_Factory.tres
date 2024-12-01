@@ -13,3 +13,4 @@ base_yield = {
 "ENERGY": -3,
 "PRODUCTION": 2
 }
+building_tags = []

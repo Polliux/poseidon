@@ -9,6 +9,7 @@ extends Node2D
 
 const MAP_H_MAX: int = 40
 const MAP_Q_MAX:int = 30
+const GROUND_TILE_ODDS: float = 0.57
 
 var tilelist: Dictionary = create_master_tilelist()
 
@@ -50,7 +51,10 @@ func create_master_tilelist():
 		for q in range(MAP_Q_MAX):
 			var new_tile = Tile.new()
 			#var random_terrain: Vector2 = Vector2(randi_range(0,2),randi_range(0,1))
-			new_tile.terrain = randi_range(0,1)
+			if randf() >= GROUND_TILE_ODDS:
+				new_tile.terrain = 1
+			else:
+				new_tile.terrain = 0
 			
 			new_tilelist[Vector2i(h,q)] = new_tile
 			new_tile.init()
@@ -116,7 +120,7 @@ func update_building_sprite_at(coords: Vector2i):
 			
 		var sprite = tile.building.tile_sprite_ps.instantiate()
 		sprite.speed_scale = randf_range(0.6,1.4)
-		sprite.scale = Vector2(2,2)
+		#sprite.scale = Vector2(1.5,1.5)
 			
 		sprite.position = tilemap.map_to_local(coords)
 		buildings_node.add_child(sprite)
@@ -157,7 +161,8 @@ func get_adjacent_tiles(coords:Vector2i) -> Dictionary:
 	var dict:Dictionary = {}
 	var arr = tilemap.get_surrounding_cells(Vector2i(coords))
 	for i in arr:
-		dict[i] = tilelist[i]
+		if tilelist.has(i):
+			dict[i] = tilelist[i]
 	return dict
 	
 	

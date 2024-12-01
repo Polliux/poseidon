@@ -1,5 +1,10 @@
 extends Camera2D
 
+#const MIN_CAMERA_X = -50
+#const MAX_CAMERA_X = 700
+#const MIN_CAMERA_Y = -100
+#const MAX_CAMERA_Y = 1500
+
 const FRAMERATE_CONST = 60
 const ZOOM_MAX: Vector2 = Vector2(1.4,1.4)
 const ZOOM_MIN: Vector2 = Vector2(0.6,0.6)
@@ -47,3 +52,5 @@ func on_mousewheel(mousewheel_direction: int) -> void:
 
 func mouse_drag_camera(vector:Vector2) -> void:
 	target_position -= (2*vector)
+	#target_position.x = clampf(target_position.x,MIN_CAMERA_X,MAX_CAMERA_X)
+	#target_position.y = clampf(target_position.y,MIN_CAMERA_Y,MAX_CAMERA_Y)

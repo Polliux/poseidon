@@ -10,6 +10,8 @@ extends Resource
 
 @export var base_yield: Dictionary = Yield.zero_yields()
 
+@export var building_tags: Array
+
 func get_base_yield():
 	return base_yield
 	
