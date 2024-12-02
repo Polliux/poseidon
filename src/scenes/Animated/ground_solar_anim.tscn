@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://di3kg8cgq8weu"]
+
+[ext_resource type="Texture2D" uid="uid://b6tp82w4k7g3d" path="res://asset/image/Buildings/Solar_Panel_Bd.png" id="1_201kk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3h4k"]
+atlas = ExtResource("1_201kk")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viayd"]
+atlas = ExtResource("1_201kk")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssxa4"]
+atlas = ExtResource("1_201kk")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87isg"]
+atlas = ExtResource("1_201kk")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyqt2"]
+atlas = ExtResource("1_201kk")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3l3r"]
+atlas = ExtResource("1_201kk")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlukl"]
+atlas = ExtResource("1_201kk")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6gem"]
+atlas = ExtResource("1_201kk")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtg3l"]
+atlas = ExtResource("1_201kk")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5vqu"]
+atlas = ExtResource("1_201kk")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4bfuo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3h4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viayd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssxa4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87isg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyqt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3l3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlukl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6gem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtg3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5vqu")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 12.0
+}]
+
+[node name="Ground_solar_anim" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_4bfuo")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.404587

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://wxgcn2mx3hvw"]
+
+[ext_resource type="Script" path="res://src/resources/Builidng_Logic/Bd_Ground_Solar_Logic.gd" id="1_kh3qn"]
+[ext_resource type="PackedScene" uid="uid://di3kg8cgq8weu" path="res://src/scenes/Animated/ground_solar_anim.tscn" id="2_flhqs"]
+
+[resource]
+script = ExtResource("1_kh3qn")
+id = ""
+building_name = "Solar Panels"
+number = 0
+tile_sprite_ps = ExtResource("2_flhqs")
+base_yield = null
+building_tags = ["SOLAR"]
