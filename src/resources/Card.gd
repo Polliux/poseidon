@@ -3,6 +3,7 @@ extends Resource
 
 @export var card_title:String = ""
 @export var card_image:Texture2D
+@export var science_buy_cost: int = 10
 @export var assigned_building: Building
 # HAS TO BE OR INHERITS FROM BUILDING TYPE
 # WEIRD GODOT QUIRK -

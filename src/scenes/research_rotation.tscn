@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx88wq188m0vq"]
+
+[ext_resource type="Script" path="res://src/scripts/research_rotation.gd" id="1_jogjx"]
+[ext_resource type="PackedScene" uid="uid://dohoiuo4sw78b" path="res://src/scenes/card.tscn" id="2_gskkf"]
+
+[node name="Cards Rotation" type="Control" node_paths=PackedStringArray("cards_shelf")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 560.0
+offset_bottom = 240.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_jogjx")
+cards_shelf = NodePath("For Research")
+card_frame = ExtResource("2_gskkf")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="For Research" type="Node" parent="."]
