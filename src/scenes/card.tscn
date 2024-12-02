@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://src/scripts/card_scr.gd" id="1_6aeam"]
 [ext_resource type="Texture2D" uid="uid://xq2ov0rkcnki" path="res://asset/image/card_frame.png" id="1_i0vkw"]
-[ext_resource type="Script" path="res://src/scripts/card_state_machine.gd" id="3_fnr1i"]
-[ext_resource type="Script" path="res://src/scripts/States/card_neutral.gd" id="4_h8vp3"]
-[ext_resource type="Script" path="res://src/scripts/States/card_clicked.gd" id="5_dkffk"]
-[ext_resource type="Script" path="res://src/scripts/States/card_placed.gd" id="6_6m0kx"]
-[ext_resource type="Script" path="res://src/scripts/States/card_dragging.gd" id="7_aybht"]
+[ext_resource type="Script" path="res://src/scripts/Card_State_Machine.gd" id="3_fnr1i"]
+[ext_resource type="Script" path="res://src/scripts/States/Card States/card_neutral.gd" id="4_h8vp3"]
+[ext_resource type="Script" path="res://src/scripts/States/Card States/card_clicked.gd" id="5_dkffk"]
+[ext_resource type="Script" path="res://src/scripts/States/Card States/card_placed.gd" id="6_6m0kx"]
+[ext_resource type="Script" path="res://src/scripts/States/Card States/card_dragging.gd" id="7_aybht"]
 
 [sub_resource type="Curve" id="Curve_p0qp0"]
 min_value = -1.0
@@ -46,10 +46,55 @@ mouse_filter = 1
 theme_override_font_sizes/font_size = 12
 text = "SAMPLE TEXT"
 
+[node name="Cost" type="Label" parent="Card Shape"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 100.0
+offset_right = 43.0
+offset_bottom = 123.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.567266, 0.849052, 0.505773, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "COST :"
+
+[node name="ENERGY" type="Label" parent="Card Shape"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 100.0
+offset_right = 82.0
+offset_bottom = 125.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.796078, 0.188235, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="SCIENCE" type="Label" parent="Card Shape"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 100.0
+offset_right = 112.0
+offset_bottom = 125.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.2, 0.588235, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="PRODUCTION" type="Label" parent="Card Shape"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 100.0
+offset_right = 142.0
+offset_bottom = 125.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 0.211765, 0.211765, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+
 [node name="Card Info" type="RichTextLabel" parent="Card Shape"]
 layout_mode = 0
 offset_left = 10.0
-offset_top = 110.0
+offset_top = 127.0
 offset_right = 140.0
 offset_bottom = 212.0
 mouse_filter = 1

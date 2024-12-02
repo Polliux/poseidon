@@ -56,26 +56,31 @@ func insert(card:Card) -> bool:
 	else:
 		return false
 
-func into_player_hand() -> void:
+func into_player_hand() -> bool:
 	var card = random_draw()
 	if card:
 		var new_card = card_frame.instantiate()
 		new_card.card_res = card
+		new_card.player_interatable = true
+		new_card.discard_pile = reshuffle_from
 		add_child(new_card)
 		new_card.reparent(hand_node)
+		return true
+	else:
+		return false
 		
 func size_change_UI(new_size:Vector2) -> void:
 	
 	var new_position:Vector2 = Vector2.ZERO
 	
 	if ui_position_v == 0:
-		new_position.y = new_size.y * 10/100
+		new_position.y = new_size.y * 0.10
 	elif ui_position_v == 1:
-		new_position.y =( new_size.y * 90/100)  - (self.size.y/2)
+		new_position.y =( new_size.y * 0.90)  - (self.size.y/2)
 	if ui_position_h == 0:
-		new_position.x = new_size.x * 10/100
+		new_position.x = new_size.x * 0.10 - (self.size.x*2)
 	elif ui_position_h == 1:
-		new_position.x = new_size.x * 90/100
+		new_position.x = new_size.x * 0.90 + (self.size.x)
 		
 	position = new_position
 

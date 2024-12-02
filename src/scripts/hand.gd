@@ -1,7 +1,5 @@
 extends Node2D
 
-var card_frame = preload("res://src/scenes/card.tscn")
-
 var sort_hand: bool = true
 
 const CARD_SIZE_Y: int = 220/2
@@ -26,3 +24,11 @@ func update_hand_position(window_size: Vector2) -> void:
 	
 func _on_child_order_changed():
 	update_hand_card_pos()
+
+func discard_all():
+	var max = get_child_count()
+	for i in range(max):
+		var n = max - i - 1
+		get_child(n).player_interatable = false
+		get_child(n).discard()
+		await get_tree().create_timer(0.03).timeout

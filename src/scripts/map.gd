@@ -137,7 +137,7 @@ func db_build_all_tiles()-> void:
 # GET TILE OBJECT OF CURRENT MOUSE CURSOR POSITION
 func get_pointing_tile():
 	var mouse = get_global_mouse_position()
-	if tilelist[tilemap.local_to_map(mouse)]:
+	if tilelist.has(tilemap.local_to_map(mouse)):
 		return tilelist[tilemap.local_to_map(mouse)]
 	else:
 		return null

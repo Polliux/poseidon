@@ -29,4 +29,6 @@ func UpdateInputEvent(event):
 		Transitioned.emit(self,"Card_Placed")
 		return
 		
-		
+func Exit():
+	card.reset_alpha()
+	card.scale = Vector2(1,1)

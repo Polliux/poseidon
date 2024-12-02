@@ -4,6 +4,7 @@ extends Node2D
 enum {DECREMENT = -1, SET, INCREMENT}
 
 func _ready():
+	EventController.assign_as_ui_control(self)
 	set_start_resource()
 	size_change_UI(get_viewport_rect().size)
 
@@ -16,9 +17,8 @@ func size_change_UI(new_size:Vector2) -> void:
 
 func set_start_resource() -> void:
 	# SET STARTING RESOURCE
-	modify_resource_value("ENERGY",20, SET)
-	modify_resource_value("SCIENCE",45, SET)
-	modify_resource_value("PRODUCTION",32, SET)
+	for i in GlobalDefines.STARTING_RESOURCES:
+		modify_resource_value(i,GlobalDefines.STARTING_RESOURCES.get(i), SET)
 	
 	modify_delta_value("ENERGY",0, SET)
 	modify_delta_value("SCIENCE",0, SET)
@@ -83,3 +83,8 @@ func get_resource_node(resource: String) -> Node:
 			return rescell
 	
 	return null
+
+func increment_all_by_delta() -> void:
+	for i in Yield.resource:
+		modify_resource_value(i,get_delta_value(i), INCREMENT)
+	modify_resource_value("POLLUTION",get_delta_value("POLLUTION"), INCREMENT)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://duwbcfjo4vvlg"
+path="res://.godot/imported/n03 Tooth For A Tooth.mp3-b3be4d9fcc7d0a64786f33b52e1934d5.mp3str"
+
+[deps]
+
+source_file="res://asset/ost/n03 Tooth For A Tooth.mp3"
+dest_files=["res://.godot/imported/n03 Tooth For A Tooth.mp3-b3be4d9fcc7d0a64786f33b52e1934d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

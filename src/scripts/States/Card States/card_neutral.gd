@@ -4,8 +4,7 @@ class_name Card_Neutral
 var card
 
 func Enter():
-	card.reset_alpha()
-	card.scale = Vector2(1,1)
+	pass
 
 
 func To_Clicked():

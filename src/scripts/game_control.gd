@@ -4,6 +4,7 @@ extends Node2D
 @export var science_shop: Node
 @export var drawpile_node: Node
 @export var discardpile_node: Node
+@export var end_turn_button: Button
 
 var science_gui_toggle: bool = false
 var full_viewport: Vector2 = Vector2.ZERO
@@ -44,6 +45,10 @@ func get_map_node():
 		return map_node
 
 func _process(delta):
+	test_modulate()
+	pass
+	
+func test_modulate():
 	pass
 
 func window_resized() -> void:
@@ -62,7 +67,11 @@ func window_resized() -> void:
 	if discardpile_node:
 		discardpile_node.size_change_UI(full_viewport)
 	if science_shop:
-		update_science_shop_pos()
+		science_shop.size_change_UI(full_viewport, science_gui_toggle)
+	if end_turn_button:
+		end_turn_button.position.y = (full_viewport.y * 0.90)
+		end_turn_button.position.x = (full_viewport.x * 0.80) + (end_turn_button.size.x/2)
+		
 
 func add_to_discard_pile(card:Card) -> void:
 	discardpile_node.insert(card)
@@ -79,28 +88,13 @@ func _on_debug_draw_cards_pressed() -> void:
 func _on_debug_cards_to_drawpile_pressed() -> void:
 	
 	var card:Card
-	for i in range(4):
+	for i in range(10):
 		card = Cards_Collection.get_random_card_res()
 		drawpile_node.insert(card)
-
 
 func _on_toggle_science_shop_pressed():
 	if science_gui_toggle:
 		science_gui_toggle = false
 	else:
 		science_gui_toggle = true
-	print(science_gui_toggle)
-	update_science_shop_pos()
-		
-func update_science_shop_pos():
-	
-	science_shop._set_size(full_viewport/2)
-	var new_pos:Vector2 = Vector2.ZERO
-	new_pos = new_pos + full_viewport/2
-	new_pos.x -= (science_shop.get_size().x/2)
-	new_pos.y = (science_shop.get_size().y * 85/100)
-	
-	if not science_gui_toggle:
-		new_pos.x -= full_viewport.x
-	science_shop.target_pos = new_pos
-	
+	science_shop.size_change_UI(full_viewport, science_gui_toggle)

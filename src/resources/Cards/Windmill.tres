@@ -8,6 +8,11 @@
 script = ExtResource("2_x6qhm")
 card_title = "Windmill"
 card_image = ExtResource("2_3pk2i")
+cost_to_play = {
+"ENERGY": 1,
+"PRODUCTION": 1
+}
+science_buy_cost = 10
 assigned_building = ExtResource("1_u48px")
-card_info = "Build a Windmill
+card_info = "Windmill :
 +1 Energy per 2 empty adjacent tiles"

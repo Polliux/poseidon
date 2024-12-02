@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfghyxsrb1xyt"
+path="res://.godot/imported/n02 Groundhog.mp3-a12c99d8fd3bcdcd892c519a7e7ffa45.mp3str"
+
+[deps]
+
+source_file="res://asset/ost/n02 Groundhog.mp3"
+dest_files=["res://.godot/imported/n02 Groundhog.mp3-a12c99d8fd3bcdcd892c519a7e7ffa45.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

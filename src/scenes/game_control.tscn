@@ -1,17 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://3rag8ryq14yy"]
+[gd_scene load_steps=12 format=3 uid="uid://3rag8ryq14yy"]
 
 [ext_resource type="Script" path="res://src/scripts/game_control.gd" id="1_veebc"]
 [ext_resource type="PackedScene" uid="uid://blk68hjn5uffs" path="res://src/scenes/card_pile.tscn" id="2_mehgf"]
 [ext_resource type="PackedScene" uid="uid://dohoiuo4sw78b" path="res://src/scenes/card.tscn" id="3_wnvir"]
 [ext_resource type="PackedScene" uid="uid://ccy1qjacl7xc2" path="res://src/scenes/hand.tscn" id="4_j8uts"]
 [ext_resource type="PackedScene" uid="uid://dx88wq188m0vq" path="res://src/scenes/research_rotation.tscn" id="5_wmnwf"]
+[ext_resource type="PackedScene" uid="uid://3hurrya7vss1" path="res://src/scenes/sfx_player.tscn" id="6_w0mtv"]
+[ext_resource type="Script" path="res://src/scripts/Game_State_Machine.gd" id="7_qftab"]
+[ext_resource type="Script" path="res://src/scripts/States/Game State/game_neutral.gd" id="8_sbscs"]
+[ext_resource type="Script" path="res://src/scripts/States/Game State/draw_phase.gd" id="9_pmyv5"]
+[ext_resource type="Script" path="res://src/scripts/States/Game State/discard_phase.gd" id="10_n2xyw"]
+[ext_resource type="Script" path="res://src/scripts/States/Game State/mid_phase.gd" id="11_68w0i"]
 
-[node name="Game Control" type="Node2D" node_paths=PackedStringArray("map_vp", "science_shop", "drawpile_node", "discardpile_node")]
+[node name="Game Control" type="Node2D" node_paths=PackedStringArray("map_vp", "science_shop", "drawpile_node", "discardpile_node", "end_turn_button")]
 script = ExtResource("1_veebc")
 map_vp = NodePath("SubViewportContainer/Map Subviewport")
 science_shop = NodePath("Cards Rotation")
 drawpile_node = NodePath("Draw Pile")
 discardpile_node = NodePath("Discard Pile")
+end_turn_button = NodePath("End Turn")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 z_index = -100
@@ -45,11 +52,18 @@ card_frame = ExtResource("3_wnvir")
 ui_position_v = 1
 ui_position_h = 1
 
+[node name="End Turn" type="Button" parent="."]
+offset_left = 747.0
+offset_top = 483.0
+offset_right = 859.0
+offset_bottom = 528.0
+text = "End Turn"
+
 [node name="Toggle Science Shop" type="Button" parent="."]
-offset_left = 39.0
-offset_top = 75.0
-offset_right = 133.0
-offset_bottom = 106.0
+offset_left = 20.0
+offset_top = 77.0
+offset_right = 114.0
+offset_bottom = 108.0
 text = "Laboratory"
 
 [node name="debug_cards_to_drawpile" type="Button" parent="."]
@@ -66,13 +80,6 @@ offset_right = 318.0
 offset_bottom = 147.0
 text = "DEBUG DRAW CARD"
 
-[node name="debug_regenerate" type="Button" parent="."]
-offset_left = 141.0
-offset_top = 158.0
-offset_right = 317.0
-offset_bottom = 189.0
-text = "DEBUG REGENERATE"
-
 [node name="Hand" parent="." instance=ExtResource("4_j8uts")]
 
 [node name="Cards Rotation" parent="." instance=ExtResource("5_wmnwf")]
@@ -83,7 +90,27 @@ offset_bottom = 500.0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
+[node name="sfxPlayer" parent="." instance=ExtResource("6_w0mtv")]
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "draw_pile")]
+script = ExtResource("7_qftab")
+initial_state = NodePath("Neutral")
+draw_pile = NodePath("../Draw Pile")
+
+[node name="Neutral" type="Node" parent="State Machine"]
+script = ExtResource("8_sbscs")
+
+[node name="Draw_Phase" type="Node" parent="State Machine"]
+script = ExtResource("9_pmyv5")
+
+[node name="Discard_Phase" type="Node" parent="State Machine" node_paths=PackedStringArray("player_hand")]
+script = ExtResource("10_n2xyw")
+player_hand = NodePath("../../Hand")
+
+[node name="Mid_Phase" type="Node" parent="State Machine"]
+script = ExtResource("11_68w0i")
+
+[connection signal="pressed" from="End Turn" to="State Machine/Neutral" method="_on_end_turn_pressed"]
 [connection signal="pressed" from="Toggle Science Shop" to="." method="_on_toggle_science_shop_pressed"]
 [connection signal="pressed" from="debug_cards_to_drawpile" to="." method="_on_debug_cards_to_drawpile_pressed"]
 [connection signal="pressed" from="debug_draw_cards" to="." method="_on_debug_draw_cards_pressed"]
-[connection signal="pressed" from="debug_regenerate" to="." method="_on_debug_regenerate_pressed"]

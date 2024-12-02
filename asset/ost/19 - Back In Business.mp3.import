@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wioy2dyrivdg"
+path="res://.godot/imported/19 - Back In Business.mp3-a3a2f441ae2a6f3b692046afd57bbf54.mp3str"
+
+[deps]
+
+source_file="res://asset/ost/19 - Back In Business.mp3"
+dest_files=["res://.godot/imported/19 - Back In Business.mp3-a3a2f441ae2a6f3b692046afd57bbf54.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

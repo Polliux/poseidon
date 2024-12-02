@@ -10,7 +10,6 @@ static func load():
 		var card = load(resource_file)
 		cards_collection[file] = card
 		
-	print(cards_collection)
 
 static func get_random_card_res():
 	return cards_collection[cards_collection.keys().pick_random()]

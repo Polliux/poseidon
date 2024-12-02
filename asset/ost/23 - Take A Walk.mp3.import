@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1wdgvksv45el"
+path="res://.godot/imported/23 - Take A Walk.mp3-f72c7952bfa4105aa44e57f84a339c48.mp3str"
+
+[deps]
+
+source_file="res://asset/ost/23 - Take A Walk.mp3"
+dest_files=["res://.godot/imported/23 - Take A Walk.mp3-f72c7952bfa4105aa44e57f84a339c48.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

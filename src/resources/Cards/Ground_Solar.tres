@@ -8,7 +8,11 @@
 script = ExtResource("3_istck")
 card_title = "Solar Panels"
 card_image = ExtResource("1_76i62")
+cost_to_play = {
+"PRODUCTION": 2
+}
+science_buy_cost = 10
 assigned_building = ExtResource("1_maa2k")
-card_info = "Construct Ground Solar Panel
+card_info = "Ground Solar Panel :
 +1 Energy
 Additional +1 Energy for every 2 adjacent buildings with SOLAR tag."

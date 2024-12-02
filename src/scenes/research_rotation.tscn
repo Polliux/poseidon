@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx88wq188m0vq"]
+[gd_scene load_steps=4 format=3 uid="uid://dx88wq188m0vq"]
 
 [ext_resource type="Script" path="res://src/scripts/research_rotation.gd" id="1_jogjx"]
 [ext_resource type="PackedScene" uid="uid://dohoiuo4sw78b" path="res://src/scenes/card.tscn" id="2_gskkf"]
+[ext_resource type="PackedScene" uid="uid://ccy1qjacl7xc2" path="res://src/scenes/hand.tscn" id="3_d22an"]
 
 [node name="Cards Rotation" type="Control" node_paths=PackedStringArray("cards_shelf")]
 layout_mode = 3
@@ -11,7 +12,7 @@ offset_bottom = 240.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_jogjx")
-cards_shelf = NodePath("For Research")
+cards_shelf = NodePath("Hand")
 card_frame = ExtResource("2_gskkf")
 
 [node name="Panel" type="Panel" parent="."]
@@ -22,4 +23,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="For Research" type="Node" parent="."]
+[node name="Hand" parent="." instance=ExtResource("3_d22an")]

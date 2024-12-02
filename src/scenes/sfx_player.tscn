@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://3hurrya7vss1"]
+
+[ext_resource type="Script" path="res://src/scripts/sfxPlayer.gd" id="1_cqsk6"]
+[ext_resource type="AudioStream" uid="uid://cf4bt876ahi5t" path="res://asset/sfx/clack_1.wav" id="2_eun7x"]
+[ext_resource type="AudioStream" uid="uid://bynpfbywxgfpj" path="res://asset/ost/3 - Blues For Mr. T.mp3" id="3_328m2"]
+
+[node name="sfxPlayer" type="Node"]
+script = ExtResource("1_cqsk6")
+
+[node name="Clack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_eun7x")
+max_polyphony = 4
+
+[node name="MP" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_328m2")
+volume_db = -12.0
