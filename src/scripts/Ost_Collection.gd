@@ -6,11 +6,12 @@ static var ost_collection: Dictionary = {}
 
 static func load():
 	for file in DirAccess.get_files_at(path):
-		if file.containsn("import"):
-			continue
 		var resource_file = path + "/" + file
 		var ost = load(resource_file)
-		ost_collection[file] = ost
+		if ost:
+			print(ost.get_class())
+		if ost:
+			ost_collection[file] = ost
 		
 	print(ost_collection)
 

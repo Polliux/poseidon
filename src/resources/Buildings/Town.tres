@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ccafuuhs53adl"]
+
+[ext_resource type="Script" path="res://src/resources/Builidng_Logic/Bd_Town.gd" id="1_8i2sh"]
+[ext_resource type="PackedScene" uid="uid://cclqxmix1hu0b" path="res://src/scenes/Animated/Town.tscn" id="2_e1hus"]
+
+[resource]
+script = ExtResource("1_8i2sh")
+id = ""
+building_name = "Town"
+number = 0
+tile_sprite_ps = ExtResource("2_e1hus")
+base_yield = {
+"ENERGY": -6,
+"SCIENCE": 1
+}
+building_tags = ["TOWN"]

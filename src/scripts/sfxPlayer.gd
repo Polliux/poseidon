@@ -1,12 +1,12 @@
 extends Node
 
-var music_enabled: bool = false
+var music_enabled: bool = true
 var music_volume_mod: float = -16
 
 func _ready():
 	EventController.assign_as_sfx_control(self)
 	Ost_Collection.load()
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(2).timeout
 	random_music_play()
 
 func play_sfx_clack():

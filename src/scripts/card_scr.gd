@@ -120,6 +120,7 @@ func on_card_played():
 
 func discard():
 	EventController.game_control_node.add_to_discard_pile(card_res)
+	queue_free()
 	discard_pile_animate()
 
 func discard_pile_animate():

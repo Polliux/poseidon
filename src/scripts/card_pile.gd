@@ -65,6 +65,9 @@ func into_player_hand() -> bool:
 		new_card.discard_pile = reshuffle_from
 		add_child(new_card)
 		new_card.reparent(hand_node)
+		
+		EventController.get_sfx_control().play_sfx_clack()
+		
 		return true
 	else:
 		return false

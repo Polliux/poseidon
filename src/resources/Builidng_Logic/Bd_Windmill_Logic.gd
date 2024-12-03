@@ -11,5 +11,5 @@ func get_updated_yield(tile_coords:Vector2i) -> Dictionary:
 		if not (dict.get(e).building):
 			energy += 1
 	energy = floori(energy/2)
-	yields["ENERGY"] = energy
+	yields["PRODUCTION"] = energy
 	return yields
