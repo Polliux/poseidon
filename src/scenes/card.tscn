@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dohoiuo4sw78b"]
+[gd_scene load_steps=11 format=3 uid="uid://dohoiuo4sw78b"]
 
 [ext_resource type="Script" path="res://src/scripts/card_scr.gd" id="1_6aeam"]
 [ext_resource type="Texture2D" uid="uid://xq2ov0rkcnki" path="res://asset/image/card_frame.png" id="1_i0vkw"]
 [ext_resource type="Script" path="res://src/scripts/Card_State_Machine.gd" id="3_fnr1i"]
+[ext_resource type="Texture2D" uid="uid://b0e45wmqwq6js" path="res://asset/image/Card Frames/placeholder.png" id="3_tvpgh"]
 [ext_resource type="Script" path="res://src/scripts/States/Card States/card_neutral.gd" id="4_h8vp3"]
 [ext_resource type="Script" path="res://src/scripts/States/Card States/card_clicked.gd" id="5_dkffk"]
 [ext_resource type="Script" path="res://src/scripts/States/Card States/card_placed.gd" id="6_6m0kx"]
@@ -36,6 +37,10 @@ offset_right = -75.0
 offset_bottom = -110.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Card_Image" type="Sprite2D" parent="Card Shape"]
+position = Vector2(75, 59)
+texture = ExtResource("3_tvpgh")
 
 [node name="Card Label" type="Label" parent="Card Shape"]
 layout_mode = 0

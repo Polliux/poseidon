@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 EventController="*res://src/scripts/Globals/Event_Controller.gd"
 GlobalDefines="*res://src/scripts/Globals/Global_Defines.gd"
+SceneTransition="*res://src/scenes/scene_transition.tscn"
 
 [display]
 

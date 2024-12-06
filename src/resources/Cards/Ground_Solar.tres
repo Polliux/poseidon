@@ -11,7 +11,7 @@ card_image = ExtResource("1_76i62")
 cost_to_play = {
 "PRODUCTION": 2
 }
-science_buy_cost = 10
+science_buy_cost = 16
 assigned_building = ExtResource("1_maa2k")
 card_info = "Ground Solar Panel :
 +1 Energy

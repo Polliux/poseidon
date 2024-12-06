@@ -80,28 +80,39 @@ offset_right = 318.0
 offset_bottom = 147.0
 text = "DEBUG DRAW CARD"
 
+[node name="debug_game_over" type="Button" parent="."]
+offset_left = 139.0
+offset_top = 162.0
+offset_right = 315.0
+offset_bottom = 193.0
+text = "DEBUG GAME OVER
+"
+
 [node name="Hand" parent="." instance=ExtResource("4_j8uts")]
 
-[node name="Cards Rotation" parent="." instance=ExtResource("5_wmnwf")]
+[node name="Cards Rotation" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("5_wmnwf")]
 offset_left = -780.0
 offset_top = 260.0
 offset_right = -220.0
 offset_bottom = 500.0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+state_machine = NodePath("../State Machine")
 
 [node name="sfxPlayer" parent="." instance=ExtResource("6_w0mtv")]
 
-[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "draw_pile")]
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "draw_pile", "science_node")]
 script = ExtResource("7_qftab")
 initial_state = NodePath("Neutral")
 draw_pile = NodePath("../Draw Pile")
+science_node = NodePath("../Cards Rotation")
 
 [node name="Neutral" type="Node" parent="State Machine"]
 script = ExtResource("8_sbscs")
 
-[node name="Draw_Phase" type="Node" parent="State Machine"]
+[node name="Draw_Phase" type="Node" parent="State Machine" node_paths=PackedStringArray("scene_node")]
 script = ExtResource("9_pmyv5")
+scene_node = NodePath("../..")
 
 [node name="Discard_Phase" type="Node" parent="State Machine" node_paths=PackedStringArray("player_hand")]
 script = ExtResource("10_n2xyw")
@@ -114,3 +125,4 @@ script = ExtResource("11_68w0i")
 [connection signal="pressed" from="Toggle Science Shop" to="." method="_on_toggle_science_shop_pressed"]
 [connection signal="pressed" from="debug_cards_to_drawpile" to="." method="_on_debug_cards_to_drawpile_pressed"]
 [connection signal="pressed" from="debug_draw_cards" to="." method="_on_debug_draw_cards_pressed"]
+[connection signal="pressed" from="debug_game_over" to="." method="_on_debug_game_over_pressed"]

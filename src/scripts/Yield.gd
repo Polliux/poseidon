@@ -3,7 +3,8 @@ class_name Yield
 enum resource {
 	ENERGY,
 	SCIENCE,
-	PRODUCTION
+	PRODUCTION,
+	POLLUTION
 }
 
 static func zero_yields() -> Dictionary :

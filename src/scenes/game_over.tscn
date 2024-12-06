@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://gyxwscufd2eh"]
+
+[ext_resource type="Script" path="res://src/scripts/game_over_screen.gd" id="1_bdgkw"]
+
+[node name="Node" type="Node" node_paths=PackedStringArray("panel_node", "text_node", "back_button")]
+script = ExtResource("1_bdgkw")
+panel_node = NodePath("Panel")
+text_node = NodePath("Panel/Output Panel/MarginContainer/RichTextLabel")
+back_button = NodePath("Panel/Back to Menu")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 974.0
+offset_bottom = 551.0
+
+[node name="Game Over" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 58.0
+offset_right = 311.0
+offset_bottom = 113.0
+theme_override_font_sizes/font_size = 40
+text = "GAME OVER"
+
+[node name="Output Panel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 391.0
+offset_top = 37.0
+offset_right = 821.0
+offset_bottom = 460.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Output Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Output Panel/MarginContainer"]
+layout_mode = 2
+text = "Hello"
+
+[node name="Back to Menu" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 344.0
+offset_right = 257.0
+offset_bottom = 384.0
+text = "Back to Menu"
+
+[connection signal="pressed" from="Panel/Back to Menu" to="." method="_on_back_to_menu_pressed"]

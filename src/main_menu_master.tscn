@@ -24,6 +24,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -43,9 +44,13 @@ layout_mode = 2
 text = "Start
 "
 
-[node name="Exit" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Records" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Exit
+text = "Records"
+
+[node name="Cards" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cards
 "
 
 [node name="Add" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
@@ -56,6 +61,11 @@ text = "Add
 [node name="Remove" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Remove
+"
+
+[node name="Exit" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit
 "
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -88,6 +98,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Records" to="." method="_on_records_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Cards" to="." method="_on_cards_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Remove" to="." method="_on_remove_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

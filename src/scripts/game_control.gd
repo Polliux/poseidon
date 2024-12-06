@@ -45,11 +45,8 @@ func get_map_node():
 		return map_node
 
 func _process(delta):
-	test_modulate()
 	pass
 	
-func test_modulate():
-	pass
 
 func window_resized() -> void:
 	
@@ -91,6 +88,9 @@ func _on_debug_cards_to_drawpile_pressed() -> void:
 	for i in range(10):
 		card = Cards_Collection.get_random_card_res()
 		drawpile_node.insert(card)
+	
+func _on_debug_game_over_pressed():
+	game_over()
 
 func _on_toggle_science_shop_pressed():
 	if science_gui_toggle:
@@ -98,3 +98,7 @@ func _on_toggle_science_shop_pressed():
 	else:
 		science_gui_toggle = true
 	science_shop.size_change_UI(full_viewport, science_gui_toggle)
+
+func game_over():
+	SceneTransition.to_scene("res://src/scenes/game_over.tscn")
+	queue_free()

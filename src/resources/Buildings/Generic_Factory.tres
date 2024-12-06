@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Building" load_steps=3 format=3 uid="uid://3nu6oie45mth"]
 
 [ext_resource type="Script" path="res://src/resources/Building.gd" id="1_4weao"]
-[ext_resource type="PackedScene" uid="uid://dwsw1xts7m2hf" path="res://src/scenes/Animated/genfac_anim.tscn" id="2_tspr6"]
+[ext_resource type="PackedScene" uid="uid://dwsw1xts7m2hf" path="res://src/scripts/Animated/genfac_anim.tscn" id="2_tspr6"]
 
 [resource]
 script = ExtResource("1_4weao")

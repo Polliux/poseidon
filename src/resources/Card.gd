@@ -13,6 +13,8 @@ extends Resource
 
 @export_multiline var card_info: String = ""
 
+var current_science_buy_cost: int = science_buy_cost
+
 func get_title() -> String:
 	return card_title
 

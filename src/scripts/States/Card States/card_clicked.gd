@@ -13,7 +13,8 @@ func Update(delta:float):
 	pass
 
 func UpdateInputEvent(event):
-	if event is InputEventMouseMotion:
-		Transitioned.emit(self,"Card_Dragging")
-	else:
-		Transitioned.emit(self,"Card_Neutral")
+	if card.mode == 0:
+		if event is InputEventMouseMotion:
+			Transitioned.emit(self,"Card_Dragging")
+		else:
+			Transitioned.emit(self,"Card_Neutral")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://wxgcn2mx3hvw"]
 
 [ext_resource type="Script" path="res://src/resources/Builidng_Logic/Bd_Ground_Solar_Logic.gd" id="1_kh3qn"]
-[ext_resource type="PackedScene" uid="uid://di3kg8cgq8weu" path="res://src/scenes/Animated/ground_solar_anim.tscn" id="2_flhqs"]
+[ext_resource type="PackedScene" uid="uid://di3kg8cgq8weu" path="res://src/scripts/Animated/ground_solar_anim.tscn" id="2_flhqs"]
 
 [resource]
 script = ExtResource("1_kh3qn")

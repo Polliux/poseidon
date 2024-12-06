@@ -13,3 +13,6 @@ static func load():
 
 static func get_random_card_res():
 	return cards_collection[cards_collection.keys().pick_random()]
+
+static func get_card_collection():
+	return cards_collection

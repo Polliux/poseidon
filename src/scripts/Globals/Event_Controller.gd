@@ -7,6 +7,10 @@ var map_control_node
 var ui_control_node
 var sfx_control_node
 
+var resource_score: int = 0
+var latest_resource_value: Dictionary = {}
+var current_turn: int = 0
+
 func assign_as_sfx_control(node:Node):
 	sfx_control_node = node
 

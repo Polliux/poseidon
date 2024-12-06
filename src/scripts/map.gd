@@ -150,9 +150,11 @@ func update_total_yields():
 	var total_yields:Dictionary = {}
 	for n in Yield.resource:
 		total_yields[n] = 0;
+	total_yields["POLLUTION"] = 0
 	for i in tilelist:
-		for r in Yield.resource:
-			total_yields[r] += tilelist[i].yields[r]
+		for r in total_yields:
+			if total_yields.has(r):
+				total_yields[r] += tilelist[i].yields[r]
 			
 	for n in Yield.resource:
 		top_ui_node.modify_delta_value(str(n),total_yields[n],0)

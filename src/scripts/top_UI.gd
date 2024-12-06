@@ -3,6 +3,9 @@ extends Node2D
 @onready var bgnode = $Background
 enum {DECREMENT = -1, SET, INCREMENT}
 
+var resource_score: int = 0
+var turn: int = 0
+
 func _ready():
 	EventController.assign_as_ui_control(self)
 	set_start_resource()
@@ -20,10 +23,9 @@ func set_start_resource() -> void:
 	for i in GlobalDefines.STARTING_RESOURCES:
 		modify_resource_value(i,GlobalDefines.STARTING_RESOURCES.get(i), SET)
 	
-	modify_delta_value("ENERGY",0, SET)
-	modify_delta_value("SCIENCE",0, SET)
-	modify_delta_value("PRODUCTION",0, SET)
-	modify_delta_value("POLLUTION",20, SET)
+	for i in GlobalDefines.STARTING_DELTA:
+		modify_delta_value(i,GlobalDefines.STARTING_DELTA.get(i), SET)
+
 
 func modify_resource_value(resource: String, value: int, mode: int) -> void:
 	# SET, INCR OR DECRE SPECIFIC RESOURCE BY VALUE
@@ -38,10 +40,14 @@ func modify_resource_value(resource: String, value: int, mode: int) -> void:
 					new_value = int(rv.text) - value
 			rv.set_text(str(new_value))
 			
+			if resource != "POLLUTION" and mode == 1:
+				resource_score += value
+			
 func modify_delta_value(resource: String, value: int, mode: int) -> void:
 	# SET, INCR OR DECRE SPECIFIC RESOURCE BY VALUE
 			var rv = get_resource_node(resource).get_node("VBoxContainer/Mod Panel/Mod Value")
 			var new_value: int = 0
+
 			var new_str: String = ""
 			match mode:
 				0:
@@ -87,4 +93,20 @@ func get_resource_node(resource: String) -> Node:
 func increment_all_by_delta() -> void:
 	for i in Yield.resource:
 		modify_resource_value(i,get_delta_value(i), INCREMENT)
-	modify_resource_value("POLLUTION",get_delta_value("POLLUTION"), INCREMENT)
+
+func end_of_turn_triggered():
+	increment_all_by_delta()
+	update_global_score()
+	turn += 1
+	
+func get_resource_dict() -> Dictionary:
+	var dict: Dictionary = {}
+	for i in Yield.resource:
+		dict[i] = get_resource_value(i)
+	return dict
+
+func update_global_score():
+	EventController.current_turn = self.turn
+	EventController.resource_score = self.resource_score
+	EventController.latest_resource_value = get_resource_dict()
+	print(EventController.latest_resource_value)

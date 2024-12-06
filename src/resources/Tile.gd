@@ -27,4 +27,5 @@ func update_yield(tile_coords:Vector2i) ->void:
 			fn_yields[i] = bd_yields[i]
 		else:
 			fn_yields[i] = 0
+	yields.get_or_add("POLLUTION",0)		
 	yields = fn_yields

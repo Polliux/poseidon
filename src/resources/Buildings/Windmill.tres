@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://jrachruacl3"]
 
 [ext_resource type="Script" path="res://src/resources/Builidng_Logic/Bd_Windmill_Logic.gd" id="1_fjw5j"]
-[ext_resource type="PackedScene" uid="uid://b143jrxeb4c4k" path="res://src/scenes/Animated/wm_anim.tscn" id="2_dr2hw"]
+[ext_resource type="PackedScene" uid="uid://b143jrxeb4c4k" path="res://src/scripts/Animated/wm_anim.tscn" id="2_dr2hw"]
 
 [resource]
 script = ExtResource("1_fjw5j")

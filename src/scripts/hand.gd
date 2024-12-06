@@ -32,3 +32,9 @@ func discard_all():
 		get_child(n).player_interatable = false
 		get_child(n).discard()
 		await get_tree().create_timer(0.03).timeout
+
+func toggle_interactable(flag:bool):
+	var max = get_child_count()
+	for i in range(max):
+		var n = max - i - 1
+		get_child(n).player_interatable = flag

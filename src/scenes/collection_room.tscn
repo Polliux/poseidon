@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://c74ya0mrfuhva"]
+
+[ext_resource type="Script" path="res://src/scripts/collection_room.gd" id="1_1m6lq"]
+
+[node name="Node" type="Node" node_paths=PackedStringArray("panel_node", "output_node", "back_button", "records_box")]
+script = ExtResource("1_1m6lq")
+panel_node = NodePath("Panel")
+output_node = NodePath("Panel/Output Panel")
+back_button = NodePath("Panel/Back to Menu")
+records_box = NodePath("Panel/Output Panel/MarginContainer/ScrollContainer/CardContainer")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 984.0
+offset_bottom = 553.0
+
+[node name="Output Panel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 31.0
+offset_right = 932.0
+offset_bottom = 515.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Output Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/Output Panel/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="CardContainer" type="FlowContainer" parent="Panel/Output Panel/MarginContainer/ScrollContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+last_wrap_alignment = 1
+
+[node name="Back to Menu" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 488.0
+offset_right = 139.0
+offset_bottom = 528.0
+text = "Back to Menu"
+
+[connection signal="pressed" from="Panel/Back to Menu" to="." method="_on_back_to_menu_pressed"]

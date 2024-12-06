@@ -19,14 +19,20 @@ func _process(delta):
 
 # MENU NAVIGATION
 func _on_start_pressed():
-	var game = preload("res://src/scenes/game_control.tscn").instantiate()
-	get_tree().root.add_child(game)
-
+	SceneTransition.to_scene("res://src/scenes/game_control.tscn")
 	queue_free()
 
 func _on_exit_pressed():
 	get_tree().quit()
-
+	
+func _on_records_pressed():
+	SceneTransition.to_scene("res://src/scenes/records.tscn")
+	queue_free()
+	
+func _on_cards_pressed():
+	SceneTransition.to_scene("res://src/scenes/collection_room.tscn")
+	queue_free()
+	
 # FIREBASE REALTIME DB TEST
 func _on_add_pressed():
 	var key = $PanelContainer/VBoxContainer/BoxContainer/HBoxContainer/TextEdit.text

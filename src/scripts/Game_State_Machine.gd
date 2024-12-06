@@ -2,6 +2,9 @@ extends Node
 
 @export var initial_state : State
 @export var draw_pile: Node
+@export var science_node: Node
+
+signal state_changed
 
 var current_state: State
 var states: Dictionary = {}
@@ -29,6 +32,7 @@ func _input(event):
 		current_state.UpdateInputEvent(event)
 
 func on_child_transition(state,new_state_name):
+	state_changed.emit(state,new_state_name)
 	if state != current_state:
 		return
 		
@@ -49,3 +53,6 @@ func trigger_draws():
 		else:
 			# 0 CARDS IN DRAW & DISCARD PILE
 			return
+
+func trigger_shop_refresh():
+	science_node.refresh_shop()

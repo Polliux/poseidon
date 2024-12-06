@@ -12,7 +12,7 @@ cost_to_play = {
 "ENERGY": 1,
 "PRODUCTION": 1
 }
-science_buy_cost = 10
+science_buy_cost = 24
 assigned_building = ExtResource("1_u48px")
 card_info = "Windmill :
 +1 Energy per 2 empty adjacent tiles"
