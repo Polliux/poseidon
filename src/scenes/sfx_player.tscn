@@ -14,3 +14,5 @@ max_polyphony = 4
 [node name="MP" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_eetkq")
 volume_db = -12.0
+
+[connection signal="finished" from="MP" to="." method="_on_mp_finished"]

@@ -10,3 +10,4 @@ building_name = "Windmill"
 number = 0
 tile_sprite_ps = ExtResource("2_dr2hw")
 base_yield = null
+building_tags = ["ENERGY_GENERATOR"]

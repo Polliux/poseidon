@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b1tvdacdjnea2"]
+
+[ext_resource type="Texture2D" uid="uid://ct4txq1s2y05s" path="res://asset/image/Card Frames/Climate_Apathy.png" id="1_ttrsp"]
+[ext_resource type="Script" path="res://src/resources/Card_Logic/Cd_Enviromental_Apathy_Logic.gd" id="2_qm4w6"]
+
+[resource]
+script = ExtResource("2_qm4w6")
+card_title = "Enviromental Apathy"
+card_image = ExtResource("1_ttrsp")
+cost_to_play = {
+"PRODUCTION": 4,
+"SCIENCE": 4
+}
+science_buy_cost = 0
+appear_in_shop = false
+card_type = 1
+exhaust = true
+card_info = "Blocker
++2 Pollution on Draw
+Exhaust on Play"

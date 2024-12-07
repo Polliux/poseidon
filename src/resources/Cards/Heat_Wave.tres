@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bjfg0dkhlrlas"]
+
+[ext_resource type="Texture2D" uid="uid://cy4hajpk88v6p" path="res://asset/image/Card Frames/Heat Wave.png" id="1_4o8mc"]
+[ext_resource type="Script" path="res://src/resources/Card_Logic/Cd_Heat_Wave_Logic.gd" id="2_sy33j"]
+
+[resource]
+script = ExtResource("2_sy33j")
+card_title = "Heat Wave"
+card_image = ExtResource("1_4o8mc")
+cost_to_play = {
+"ENERGY": 4,
+"SCIENCE": 2
+}
+science_buy_cost = 0
+appear_in_shop = false
+card_type = 1
+exhaust = true
+card_info = "Blocker
+-2 Production on Draw
+Exhaust on Play"

@@ -72,7 +72,7 @@ offset_bottom = 125.0
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.796078, 0.188235, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 
 [node name="SCIENCE" type="Label" parent="Card Shape"]
 layout_mode = 0
@@ -83,7 +83,7 @@ offset_bottom = 125.0
 mouse_filter = 1
 theme_override_colors/font_color = Color(0.2, 0.588235, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 
 [node name="PRODUCTION" type="Label" parent="Card Shape"]
 layout_mode = 0
@@ -94,7 +94,7 @@ offset_bottom = 125.0
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 0.211765, 0.211765, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 
 [node name="Card Info" type="RichTextLabel" parent="Card Shape"]
 layout_mode = 0

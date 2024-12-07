@@ -5,15 +5,18 @@ static var path = "res://asset/ost/"
 static var ost_collection: Dictionary = {}
 
 static func load():
-	for file in DirAccess.get_files_at(path):
-		var resource_file = path + "/" + file
-		var ost = load(resource_file)
-		if ost:
-			print(ost.get_class())
-		if ost:
-			ost_collection[file] = ost
-		
-	print(ost_collection)
+	if ost_collection.is_empty():
+		var arr = [
+			"res://asset/ost/4 - Singn Em.mp3",
+			"res://asset/ost/11 - Fire In The Brain.mp3",
+			"res://asset/ost/19 - Back In Business.mp3",
+			"res://asset/ost/blues.mp3",
+			"res://asset/ost/n02 Groundhog.mp3",
+			"res://asset/ost/n04 Redman.mp3",
+			"res://asset/ost/n05 Old Habits.mp3"
+		]
+		for i in arr:
+			ost_collection[i] = load(i)
 
 static func get_random_ost_res():
 	return ost_collection[ost_collection.keys().pick_random()]

@@ -11,6 +11,9 @@ var game_ref
 @export var back_button: Button
 
 func _ready():
+	
+	$Panel/Desc.text = "You exceeded " + str(GlobalDefines.MAX_POLLUTION_STATE) + " Pollution"
+	
 	if text_node:
 		text_node.text = generate_game_summary_text()
 		

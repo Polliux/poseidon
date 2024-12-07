@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://v566ls2ts3ii"]
+
+[ext_resource type="Texture2D" uid="uid://ddhbqnn1m3dni" path="res://asset/image/Card Frames/Research Export.png" id="1_l81pi"]
+[ext_resource type="Script" path="res://src/resources/Card_Logic/Cd_Research_Export_Logic.gd" id="1_uwfln"]
+
+[resource]
+script = ExtResource("1_uwfln")
+card_title = "Research Export"
+card_image = ExtResource("1_l81pi")
+cost_to_play = {
+"SCIENCE": 5
+}
+science_buy_cost = 7
+appear_in_shop = true
+card_type = 0
+exhaust = false
+card_info = "+5 Energy"

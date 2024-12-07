@@ -13,6 +13,9 @@ cost_to_play = {
 "PRODUCTION": 1
 }
 science_buy_cost = 24
+appear_in_shop = true
+card_type = 0
+exhaust = false
 assigned_building = ExtResource("1_u48px")
 card_info = "Windmill :
 +1 Energy per 2 empty adjacent tiles"

@@ -10,4 +10,4 @@ building_name = "Solar Panels"
 number = 0
 tile_sprite_ps = ExtResource("2_flhqs")
 base_yield = null
-building_tags = ["SOLAR"]
+building_tags = ["SOLAR", "ENERGY_GENERATOR"]

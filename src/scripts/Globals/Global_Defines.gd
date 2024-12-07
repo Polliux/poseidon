@@ -4,17 +4,20 @@ extends Node
 
 const CARD_DRAW_PER_TURN: int = 5
 
-const MAX_POLLUTION_STATE: int = 1000
+const MAX_POLLUTION_STATE: int = 80
+const SEVERE_POLLUTION_STATE: int = 60
+const MODERATE_POLLUTION_STATE: int = 40
+const MINOR_POLLUTION_STATE: int = 20
 
 const STARTING_RESOURCES: Dictionary = {
-	"ENERGY" : 20,
+	"ENERGY" : 25,
 	"SCIENCE" : 20,
 	"PRODUCTION" : 20,
 	"POLLUTION" : 0
 }
 const STARTING_DELTA: Dictionary = {
-	"ENERGY": 2,
-	"SCIENCE": 1,
-	"PRODUCTION": 1,
-	"POLLUTION": 1
+	"ENERGY": 0,
+	"SCIENCE": 0,
+	"PRODUCTION": 0,
+	"POLLUTION": 0
 }

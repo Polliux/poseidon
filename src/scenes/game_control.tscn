@@ -20,15 +20,6 @@ drawpile_node = NodePath("Draw Pile")
 discardpile_node = NodePath("Discard Pile")
 end_turn_button = NodePath("End Turn")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-z_index = -100
-offset_right = 643.0
-offset_bottom = 512.0
-
-[node name="Map Subviewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-render_target_update_mode = 4
-
 [node name="Draw Pile" parent="." node_paths=PackedStringArray("hand_node", "reshuffle_from") instance=ExtResource("2_mehgf")]
 z_index = 1
 offset_left = 12.0
@@ -51,6 +42,15 @@ hand_node = NodePath("../Hand")
 card_frame = ExtResource("3_wnvir")
 ui_position_v = 1
 ui_position_h = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+z_index = -100
+offset_right = 643.0
+offset_bottom = 512.0
+
+[node name="Map Subviewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
 
 [node name="End Turn" type="Button" parent="."]
 offset_left = 747.0
@@ -101,10 +101,11 @@ state_machine = NodePath("../State Machine")
 
 [node name="sfxPlayer" parent="." instance=ExtResource("6_w0mtv")]
 
-[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "draw_pile", "science_node")]
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "draw_pile", "discard_pile", "science_node")]
 script = ExtResource("7_qftab")
 initial_state = NodePath("Neutral")
 draw_pile = NodePath("../Draw Pile")
+discard_pile = NodePath("../Discard Pile")
 science_node = NodePath("../Cards Rotation")
 
 [node name="Neutral" type="Node" parent="State Machine"]

@@ -3,6 +3,10 @@ extends Control
 @export var hand_node: Node
 @export var card_frame: PackedScene
 @export var reshuffle_from: Node
+@export var area2d_node: Area2D
+
+var pile_menu
+
 @export_enum ("TOP", "BOTTOM") var ui_position_v
 @export_enum ("LEFT", "RIGHT") var ui_position_h
 
@@ -12,10 +16,28 @@ func _ready():
 	on_pile_changes()
 	pass 
 
-
 func _process(delta):
 	pass
+	
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	print(event)
+	if event.is_action_pressed("Left Click"):
+		var panel = preload("res://src/scenes/collection_room.tscn").instantiate()
+		panel.mode = 1
+		pile_menu = panel
+		
+		panel.load_cards(content_to_dict())
+		get_parent().add_child(panel)
 
+		
+func content_to_dict() -> Dictionary:
+	var dict: Dictionary
+	var counter:int = 0
+	for i in card_piles:
+			dict[counter] = card_piles[counter]
+			counter += 1
+	return dict
+		
 func random_draw():
 	if card_piles.size() <= 0:
 		if reshuffle_from:
@@ -65,6 +87,8 @@ func into_player_hand() -> bool:
 		new_card.discard_pile = reshuffle_from
 		add_child(new_card)
 		new_card.reparent(hand_node)
+		if new_card.card_res.has_method("on_draw_effect"):
+			new_card.card_res.on_draw_effect()
 		
 		EventController.get_sfx_control().play_sfx_clack()
 		
@@ -93,3 +117,9 @@ func on_pile_changes():
 		dict.get_or_add(i.card_title,0)
 		dict[i.card_title] += 1
 	set_tooltip_text(str(dict))
+	
+func update_pile_menu():
+	if pile_menu:
+		if pile_menu != null:
+			pile_menu.load_cards(content_to_dict())
+	

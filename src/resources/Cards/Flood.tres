@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://btsnw271vif7k"]
+
+[ext_resource type="Script" path="res://src/resources/Card_Logic/Cd_Flood_Logic.gd" id="1_lklq8"]
+[ext_resource type="Texture2D" uid="uid://djvlkufsbjmyk" path="res://asset/image/Card Frames/Flooding.png" id="1_omgg2"]
+
+[resource]
+script = ExtResource("1_lklq8")
+card_title = "Flooding"
+card_image = ExtResource("1_omgg2")
+cost_to_play = {
+"ENERGY": 4,
+"PRODUCTION": 4
+}
+science_buy_cost = 0
+appear_in_shop = false
+card_type = 1
+exhaust = true
+card_info = "Blocker
+-2 Production on Draw
+Exhaust on Play"

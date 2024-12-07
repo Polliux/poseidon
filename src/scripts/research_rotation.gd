@@ -8,6 +8,9 @@ extends Control
 const LERP_SPEED:float = 0.30
 const GAP_MARGIN:float = 20
 
+const RAND_MIN:float = 0.70
+const RAND_MAX:float = 1.10
+
 var target_pos:Vector2
 var outer_margin = 30
 
@@ -30,13 +33,16 @@ func generate_3_random_cards() -> void:
 
 	for i in range(3):
 		var new_card = card_frame.instantiate()
-		new_card.card_res = Cards_Collection.get_random_card_res()
+		var card_inst
+		while (!card_inst) or (!card_inst.appear_in_shop):
+			card_inst = Cards_Collection.get_random_card_res()
+		new_card.card_res = card_inst
 		new_card.mode = 1
 		new_card.lerp_speed = 0.30
 		new_card.target_pos = Vector2(50+(50*i),self.position.y+100)
 		cards_shelf.add_child(new_card)
 		
-		new_card.card_res.current_science_buy_cost = roundi(new_card.card_res.science_buy_cost * randf_range(0.7,1.5))
+		new_card.card_res.current_science_buy_cost = roundi(new_card.card_res.science_buy_cost * randf_range(RAND_MIN,RAND_MAX))
 		
 		var offset: Vector2 = Vector2(70,-90)
 		

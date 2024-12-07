@@ -35,6 +35,9 @@ func _ready():
 	$"Card Shape/Card Label".set_text(card_res.card_title)
 	$"Card Shape/Card Info".set_text(card_res.card_info)
 	
+	if card_res.card_type == 1:
+		self_modulate = Color.FIREBRICK
+	
 	var ctp = card_res.cost_to_play
 	var cost: int
 	for i in Yield.resource:
@@ -124,7 +127,10 @@ func card_pay() -> void:
 
 	
 func on_card_played():
-	discard()
+	if !card_res.exhaust:
+		discard()
+	else:
+		queue_free()
 
 func discard():
 	EventController.game_control_node.add_to_discard_pile(card_res)

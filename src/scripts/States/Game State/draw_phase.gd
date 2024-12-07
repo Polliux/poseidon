@@ -10,10 +10,18 @@ func Enter():
 	Transitioned.emit(self,"Neutral")
 	
 func Exit():
-	if EventController.get_ui_control().get_resource_value("POLLUTION"):
-		if (EventController.get_ui_control().get_resource_value("POLLUTION") >= GlobalDefines.MAX_POLLUTION_STATE):
+	get_parent().update_piles()
+	var pollution = EventController.get_ui_control().get_resource_value("POLLUTION")
+	if pollution:
+		if (pollution >= GlobalDefines.MAX_POLLUTION_STATE):
 			if scene_node:
 				scene_node.game_over()
+		elif (pollution >= GlobalDefines.SEVERE_POLLUTION_STATE):
+			get_parent().trigger_issue_insert(3)
+		elif (pollution >= GlobalDefines.MODERATE_POLLUTION_STATE):
+			get_parent().trigger_issue_insert(2)
+		elif (pollution >= GlobalDefines.MINOR_POLLUTION_STATE):
+			get_parent().trigger_issue_insert(1)
 	
 func Update(delta):
 	pass

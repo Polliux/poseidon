@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bryxrqbml2ouq"]
+
+[ext_resource type="Texture2D" uid="uid://ccyjk5ycgysp1" path="res://asset/image/Card Frames/Energy Shortage.png" id="1_k2ayj"]
+[ext_resource type="Script" path="res://src/resources/Card_Logic/Cd_Energy_Shortage_Logic.gd" id="2_2l4a3"]
+
+[resource]
+script = ExtResource("2_2l4a3")
+card_title = "Energy Shortage"
+card_image = ExtResource("1_k2ayj")
+cost_to_play = {
+"ENERGY": 10
+}
+science_buy_cost = 0
+appear_in_shop = false
+card_type = 1
+exhaust = true
+card_info = "Blocker
+-3 Energy on Draw
+Exhaust on Play"

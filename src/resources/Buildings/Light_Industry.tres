@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://blo5oqjlnoh8g"]
+
+[ext_resource type="Script" path="res://src/resources/Builidng_Logic/Bd_Light_Industry.gd" id="1_r107b"]
+[ext_resource type="PackedScene" uid="uid://cq0mc8ex034dm" path="res://src/scripts/Animated/Light_Industry_anim.tscn" id="2_0htuo"]
+
+[resource]
+script = ExtResource("1_r107b")
+id = ""
+building_name = "Light Industry"
+number = 0
+tile_sprite_ps = ExtResource("2_0htuo")
+base_yield = {
+"ENERGY": -6,
+"POLLUTION": 4,
+"PRODUCTION": 2
+}
+building_tags = ["LIGHT_INDUSTRY"]

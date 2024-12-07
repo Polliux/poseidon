@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://lpnanib6e5oi"]
+
+[ext_resource type="Script" path="res://src/resources/Card_Logic/Cd_Light_Industry_Logic.gd" id="1_duptu"]
+[ext_resource type="Resource" uid="uid://blo5oqjlnoh8g" path="res://src/resources/Buildings/Light_Industry.tres" id="1_vysa8"]
+[ext_resource type="Texture2D" uid="uid://b0e45wmqwq6js" path="res://asset/image/Card Frames/placeholder.png" id="2_lwsx4"]
+
+[resource]
+script = ExtResource("1_duptu")
+card_title = "Light Industry"
+card_image = ExtResource("2_lwsx4")
+cost_to_play = {
+"ENERGY": 5,
+"PRODUCTION": 4
+}
+science_buy_cost = 12
+appear_in_shop = true
+card_type = 0
+exhaust = false
+assigned_building = ExtResource("1_vysa8")
+card_info = "- 6 Energy
++ 4 Pollution
++ 2 Production
+- 1 Pollution if next to Energy Generator.
++ 1 Production if next to another Light Industry.
+"

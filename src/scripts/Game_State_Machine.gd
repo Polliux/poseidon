@@ -2,6 +2,7 @@ extends Node
 
 @export var initial_state : State
 @export var draw_pile: Node
+@export var discard_pile: Node
 @export var science_node: Node
 
 signal state_changed
@@ -53,6 +54,16 @@ func trigger_draws():
 		else:
 			# 0 CARDS IN DRAW & DISCARD PILE
 			return
+			
+func trigger_issue_insert(count):
+	var card:Card
+	for i in range(count):
+		card = Cards_Collection.get_random_issue_card_res()
+		discard_pile.insert(card)
 
 func trigger_shop_refresh():
 	science_node.refresh_shop()
+
+func update_piles():
+	draw_pile.update_pile_menu()
+	discard_pile.update_pile_menu()

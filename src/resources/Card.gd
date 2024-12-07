@@ -5,6 +5,10 @@ extends Resource
 @export var card_image:Texture2D
 @export var cost_to_play:Dictionary = Yield.zero_yields()
 @export var science_buy_cost: int = 10
+@export var appear_in_shop: bool = true
+
+@export_enum ("REGULAR", "ISSUE") var card_type
+@export var exhaust: bool = false
 @export var assigned_building: Building
 # HAS TO BE OR INHERITS FROM BUILDING TYPE
 # WEIRD GODOT QUIRK -
@@ -37,3 +41,6 @@ func card_execute() -> bool:
 
 func execute_check() -> bool:
 	return false
+
+func on_draw_effect():
+	pass

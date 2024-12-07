@@ -54,7 +54,7 @@ func _on_new_data_updated(data):
 func _on_patch_data_updated(data):
 	print("patch data")
 	print(data)
-	#from_db_updated_data(data)
+
 	
 # ON LOGIN/SIGNUP 
 func on_login_succeed(auth):
@@ -79,7 +79,7 @@ func load_db():
 	game_ref = Firebase.Database.get_database_reference("game", {})
 	
 	game_ref.new_data_update.connect(_on_new_data_updated)
-	#game_ref.patch_data_update.connect(_on_patch_data_updated)
+	game_ref.patch_data_update.connect(_on_patch_data_updated)
 	
 func pass_delete_to_db(ref):
 	if !game_ref:
@@ -118,5 +118,10 @@ func display_record(dict:Dictionary):
 		if dict.get(i):
 			rec.set_value(i,dict.get(i).get("turns"),dict.get(i).get("rv"),dict.get(i).get("resources"))
 			rec.on_delete_clicked.connect(pass_delete_to_db.bind())
+			rec.outer_node = self
 			records_box.add_child(rec)
 	
+func push_update(key,data):
+	if game_ref:
+		game_ref.update(key,data)
+		load_db()

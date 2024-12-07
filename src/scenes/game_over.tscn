@@ -21,6 +21,15 @@ offset_bottom = 113.0
 theme_override_font_sizes/font_size = 40
 text = "GAME OVER"
 
+[node name="Desc" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 126.0
+offset_right = 136.0
+offset_bottom = 149.0
+theme_override_colors/font_color = Color(0.854902, 0.152941, 0.105882, 1)
+text = "You exceeded "
+
 [node name="Output Panel" type="Panel" parent="Panel"]
 layout_mode = 0
 offset_left = 391.0

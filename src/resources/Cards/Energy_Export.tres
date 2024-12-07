@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dbop00c6sg8gq"]
+
+[ext_resource type="Script" path="res://src/resources/Card_Logic/Cd_Energy_Export_Logic.gd" id="1_fsrl6"]
+[ext_resource type="Texture2D" uid="uid://bv1rtfxi0jky5" path="res://asset/image/Card Frames/Energy Export.png" id="1_qkqw1"]
+
+[resource]
+script = ExtResource("1_fsrl6")
+card_title = "Energy Export"
+card_image = ExtResource("1_qkqw1")
+cost_to_play = {
+"ENERGY": 8
+}
+science_buy_cost = 7
+appear_in_shop = true
+card_type = 0
+exhaust = false
+card_info = "+ 3 Production
++ 1 Energy"

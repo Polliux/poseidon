@@ -6,6 +6,8 @@ extends Node2D
 @export var discardpile_node: Node
 @export var end_turn_button: Button
 
+var debug_enabled = false
+
 var science_gui_toggle: bool = false
 var full_viewport: Vector2 = Vector2.ZERO
 
@@ -15,6 +17,7 @@ var map_node
 
 func _ready():
 	
+	update_debug_buttons()
 	Cards_Collection.load()
 	
 	# CONNECT TO MASTER NODE
@@ -33,12 +36,14 @@ func _ready():
 	var main_map = preload("res://src/scenes/map.tscn")
 	var new_main_map = main_map.instantiate()
 	map_vp.add_child(new_main_map)
-	
-	
+
 	window_resized()
 	
 	# GET & ASSIGN MAP NODE
 	map_node = map_vp.get_node("Game Map Node")
+	
+	await get_tree().create_timer(1).timeout
+	initialise_game()
 	
 func get_map_node():
 	if map_node:
@@ -47,6 +52,26 @@ func get_map_node():
 func _process(delta):
 	pass
 	
+func initialise_game():
+	var card:Card
+	var dict = Cards_Collection.get_start_deck()
+	for i in dict:
+		var count = dict.get(i)
+		while count >= 1:
+			card = load(i)
+			drawpile_node.insert(card)
+			count -= 1
+	$"State Machine".on_child_transition($"State Machine".current_state,"Discard_Phase")
+	
+func update_debug_buttons():
+	if !debug_enabled:
+		$debug_cards_to_drawpile.visible = false
+		$debug_draw_cards.visible = false
+		$debug_game_over.visible = false
+	elif debug_enabled:
+		$debug_cards_to_drawpile.visible = true
+		$debug_draw_cards.visible = true
+		$debug_game_over.visible = true
 
 func window_resized() -> void:
 	
@@ -69,7 +94,13 @@ func window_resized() -> void:
 		end_turn_button.position.y = (full_viewport.y * 0.90)
 		end_turn_button.position.x = (full_viewport.x * 0.80) + (end_turn_button.size.x/2)
 		
-
+func _input(event):
+	if event.is_action_pressed("Full Escape"):
+		SceneTransition.to_scene("res://src/main_menu_master.tscn")
+	elif event.is_action_pressed("Debug Toggle"):
+		debug_enabled = !debug_enabled
+		update_debug_buttons()
+		
 func add_to_discard_pile(card:Card) -> void:
 	discardpile_node.insert(card)
 	

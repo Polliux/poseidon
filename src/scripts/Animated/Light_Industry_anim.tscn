@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://cq0mc8ex034dm"]
+
+[ext_resource type="Texture2D" uid="uid://cenyl0cx2opdr" path="res://asset/image/Buildings/Light_Industry.png" id="1_pv4m5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpgfx"]
+atlas = ExtResource("1_pv4m5")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bubb"]
+atlas = ExtResource("1_pv4m5")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pesvf"]
+atlas = ExtResource("1_pv4m5")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k76mv"]
+atlas = ExtResource("1_pv4m5")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yna6c"]
+atlas = ExtResource("1_pv4m5")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqa2e"]
+atlas = ExtResource("1_pv4m5")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooktw"]
+atlas = ExtResource("1_pv4m5")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avnp4"]
+atlas = ExtResource("1_pv4m5")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akoax"]
+atlas = ExtResource("1_pv4m5")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wg8gm"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_dpgfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bubb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pesvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k76mv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yna6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqa2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooktw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avnp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akoax")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[node name="LI_anim" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_wg8gm")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.719806
